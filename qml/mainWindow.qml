@@ -39,6 +39,32 @@ ApplicationWindow {
                 fillMode: Image.PreserveAspectFit
             }
 
+                        Image {
+                id: comptour_P_Logo_GVD
+                x: -1
+                y: -15
+                width: 60
+                height: 80
+                source: "Images/Comptour_P_Logo_GvD.png"
+                rotation: 90
+                fillMode: Image.PreserveAspectFit
+                Image {
+                    id: poweron
+                    x: 15
+                    y: 10
+                    width: 30
+                    height: 60
+                    rotation: 270
+                    source: "Images/power-on.png"
+                    fillMode: Image.PreserveAspectFit
+                    MouseArea {
+                                        anchors.fill: parent
+                                        onPressed: parent.color =  Constants.colorbleufoncé // Couleur plus foncée lors de l'appui
+                                        onReleased: parent.color = Constants.colorbleu // Retour à la couleur standard lors du relâchement
+                    }
+                }
+            }
+
             Image {
                 id: image1
                 x: 10
