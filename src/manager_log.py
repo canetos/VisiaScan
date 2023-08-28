@@ -1,6 +1,7 @@
 import logging
-from logging.handlers import RotatingFileHandler
 import constants
+from threading import Lock
+from logging.handlers import RotatingFileHandler
 from manager_reset_file import init_reset_file
 
 class LogManager:
@@ -29,6 +30,21 @@ class LogManager:
 
         self.logger.addHandler(handler)
 
+        # Initialisation d'un verrou pour le fichier de log
+        self.log_lock = Lock()
+
+    def _acquire_lock(self):
+        """
+        Acquérir le verrou du fichier de log.
+        """
+        self.log_lock.acquire()
+
+    def _release_lock(self):
+        """
+        Libérer le verrou du fichier de log.
+        """
+        self.log_lock.release()
+
     def info(self, message):
         """
         Enregistrer un message d'information dans les logs.
@@ -36,7 +52,12 @@ class LogManager:
         Args:
             message (str): Le message à enregistrer.
         """
-        self.logger.info(message)
+        self._acquire_lock()
+        try:
+            self.logger.info(message)
+        finally:
+            self._release_lock()
+
 
     def error(self, message):
         """
@@ -45,7 +66,11 @@ class LogManager:
         Args:
             message (str): Le message d'erreur à enregistrer.
         """
-        self.logger.error(message)
+        self._acquire_lock()
+        try:
+            self.logger.error(message)
+        finally:
+            self._release_lock()
 
     def debug(self, message):
         """
@@ -54,7 +79,11 @@ class LogManager:
         Args:
             message (str): Le message de débogage à enregistrer.
         """
-        self.logger.debug(message)
+        self._acquire_lock()
+        try:
+            self.logger.debug(message)
+        finally:
+            self._release_lock()
 
 def management_logging():
     """
