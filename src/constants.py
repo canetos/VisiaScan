@@ -1,19 +1,23 @@
 import enum
 
+# Folder projet interphone
+FOLDER_VISIA_SCAN = "VisiaScan/"
+
 # Information des trace d'erreur
-ERROR_TRACE_FILE_PATH = 'Error.trace'
-ERROR_PREVIOUS_TRACE_FILE_PATH = 'Error.previous.trace'
+ERROR_TRACE_FILE_PATH = FOLDER_VISIA_SCAN + 'Error.trace'
+ERROR_PREVIOUS_TRACE_FILE_PATH = FOLDER_VISIA_SCAN + 'Error.previous.trace'
 
 # Information des logs
-LOG_TEST_FILE_PATH = "src/test_front_app.log"
-LOG_FILE_PATH = "src/front_app.log"
+
+LOG_TEST_FILE_PATH = FOLDER_VISIA_SCAN +"src/test_front_app.log"
+LOG_FILE_PATH = FOLDER_VISIA_SCAN + "src/front_app.log"
 MAX_BYTES = 1024*1024
 BACKUP_COUNT = 3
 
 # Noms de fichiers QML correspondant à chaque étape
-PICTURE_WINDOW_QML = "qml/Picture_window.qml"
-LUNCH_WINDOW_QML = "qml/lunch_window.qml"
-MAIN_WINDOW_QML = "qml/mainWindow.qml"
+PICTURE_WINDOW_QML = FOLDER_VISIA_SCAN + "qml/Picture_window.qml"
+LUNCH_WINDOW_QML = FOLDER_VISIA_SCAN + "qml/lunch_window.qml"
+MAIN_WINDOW_QML = FOLDER_VISIA_SCAN + "qml/mainWindow.qml"
 
 class LogLevel(enum.Enum):
     INFO = "INFO"
