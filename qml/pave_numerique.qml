@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.15
+import "Constants.js" as Constants
 
 ApplicationWindow {
     visible: true
@@ -13,7 +14,7 @@ ApplicationWindow {
         id: rectanglesous
         width: parent.width //500
         height: parent.height //370
-        color: Tansparent
+        color: Constants.transparent
 
         Rectangle {
             id: rectanglemain1
@@ -32,7 +33,7 @@ ApplicationWindow {
                 color: "#007acc"
                 radius: 5
                 Rectangle {
-                    id: rectangle16
+                    id: rectangleText
                     x: 5
                     y: 5
                     width: parent.width - 10
@@ -53,7 +54,7 @@ ApplicationWindow {
                 }
             }
             Rectangle {
-                id: rectangle13
+                id: rectangleC
                 x: 10
                 y: 10
                 width: 130
@@ -63,9 +64,9 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    onPressed: parent.color = "#900000" // Couleur plus foncée lors de l'appui
                     onReleased: parent.color
-                                = "#007acc" // Retour à la couleur standard lors du relâchement
+                                = "#ac0000" // Retour à la couleur standard lors du relâchement
                 }
 
                 Text {
@@ -78,7 +79,7 @@ ApplicationWindow {
                 }
             }
             Rectangle {
-                id: rectangle14
+                id: rectangleV
                 x: 341
                 y: 10
                 width: 130
@@ -88,9 +89,9 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    onPressed: parent.color = "#006400" // Couleur plus foncée lors de l'appui
                     onReleased: parent.color
-                                = "#007acc" // Retour à la couleur standard lors du relâchement
+                                = "#00ac7a" // Retour à la couleur standard lors du relâchement
                 }
 
                 Text {
@@ -226,7 +227,7 @@ ApplicationWindow {
             }
 
             Rectangle {
-                id: rectangle23
+                id: rectangle5
                 x: 177
                 y: 10
                 width: 130
@@ -252,7 +253,7 @@ ApplicationWindow {
             }
 
             Rectangle {
-                id: rectangle24
+                id: rectangle6
                 x: 341
                 y: 10
                 width: 130
@@ -374,7 +375,7 @@ ApplicationWindow {
             color: "#2b678f"
             radius: 5
             Rectangle {
-                id: rectangle11
+                id: rectanglediez
                 x: 10
                 y: 10
                 width: 130
@@ -426,7 +427,7 @@ ApplicationWindow {
             }
 
             Rectangle {
-                id: rectangle12
+                id: rectangleetoile
                 x: 341
                 y: 10
                 width: 130

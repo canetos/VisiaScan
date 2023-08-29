@@ -8,7 +8,7 @@ from PyQt5.QtQuick import *
 from PyQt5.QtQml import *
 
 # Chemin vers le fichier QML
-qml_file = r'src_test_ui/main.qml'
+qml_file = r'appel_entre_fichier/main.qml'
 
 
 class Backend(QObject):
