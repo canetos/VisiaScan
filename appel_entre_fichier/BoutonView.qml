@@ -9,10 +9,12 @@ Rectangle {
     signal onClicked()
 
     Button {
+        x: 40
+        y: 20
         width: 200
         height: 100
         anchors.centerIn: parent
         text: "Grand Bouton"
-        onClicked: backend.sendEvent("Bouton cliqué")
+        onClicked: backend.handleButtonPress("Bouton cliqué")
     }
 }

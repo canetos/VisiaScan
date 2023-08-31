@@ -22,7 +22,7 @@ ApplicationWindow {
             MouseArea {
                 width: parent.width
                 height: parent.height
-                onClicked: backend.sendEvent("Bouton cliqué")
+                onClicked: backend.handleButtonPress("Bouton cliqué")
                 BoutonView {}
             }
         }
@@ -34,7 +34,7 @@ ApplicationWindow {
             MouseArea {
                 width: parent.width
                 height: parent.height
-                onClicked: backend.sendEvent("Bouton cliqué copy +++")
+                onClicked: backend.handleButtonPress("Bouton cliqué copy +++")
                 BoutonViewmousearea {}
             }
         }
@@ -46,12 +46,14 @@ ApplicationWindow {
             MouseArea {
                 width: parent.width
                 height: parent.height
-                onClicked: backend.sendEvent("Bouton cliqué copy")
+                onClicked: backend.handleButtonPress("Bouton cliqué copy")
                 BoutonViewcopy {}
             }
         }
 
         Rectangle {
+            x:40
+            y:0
             width: swipeView.width
             height: swipeView.height
 
@@ -79,7 +81,7 @@ ApplicationWindow {
                 width: 100
                 height: 30
                 onClicked: {
-                    backend.sendEvent("Bouton cliqué Précédent")
+                    backend.handleButtonPress("Bouton cliqué Précédent")
                     currentPage = (currentPage - 1 + swipeView.count) % swipeView.count
                 }
                 Rectangle {
@@ -97,7 +99,7 @@ ApplicationWindow {
                 width: 100
                 height: 30
                 onClicked: {
-                    backend.sendEvent("Bouton cliqué Suivant")
+                    backend.handleButtonPress("Bouton cliqué Suivant")
                     currentPage = (currentPage + 1) % swipeView.count
                 }
                 Rectangle {

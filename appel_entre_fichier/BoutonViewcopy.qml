@@ -13,6 +13,6 @@ Rectangle {
         height: 100
         anchors.centerIn: parent
         text: "Grand Bouton copie"
-        onClicked: event_backend.sendEvent("Bouton cliqué copy")
+        onClicked: backend.handleButtonPress("Bouton cliqué copy")
     }
 }

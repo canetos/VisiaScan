@@ -64,8 +64,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#900000" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#900000" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#ac0000" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -89,8 +89,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#006400" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#006400" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#00ac7a" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -124,8 +124,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#007acc" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -150,8 +150,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#007acc" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -176,8 +176,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#007acc" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -211,8 +211,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#007acc" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -237,8 +237,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#007acc" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -263,8 +263,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#007acc" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -298,8 +298,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#007acc" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -324,8 +324,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#007acc" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -350,8 +350,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#007acc" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -385,8 +385,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#007acc" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -411,8 +411,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#007acc" // Retour à la couleur standard lors du relâchement
                 }
 
@@ -437,8 +437,8 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color
+                    //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                    //onReleased: parent.color
                                 = "#007acc" // Retour à la couleur standard lors du relâchement
                 }
 

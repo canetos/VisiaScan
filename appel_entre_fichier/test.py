@@ -28,7 +28,6 @@ class Backend(QObject):
         print(f"Événement reçu : {eventData}")
         self.eventOccurred.emit(eventData)
 
-        # Mettre à jour les propriétés clickText dans les vues TexteView.qml et TexteViewcopy.qml
         context = view.rootContext()
         context.setContextProperty("clickText", eventData)
 
