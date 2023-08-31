@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import os
 import sys
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -36,7 +37,7 @@ def manager_data(self, eventData):
         text_to_send = f"troisième All send"
         self.transmit_textonQML(text_to_send, label_name)
     else:
-        print("Not pass : {eventData}")
+        print("Not pass : " + eventData)
 
 
 

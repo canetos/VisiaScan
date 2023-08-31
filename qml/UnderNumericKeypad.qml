@@ -4,7 +4,7 @@ import QtQuick.Controls 2.15
 Rectangle {
     width: 500
     height: 370
-    color: "lightgray"
+    color: "transparent"
 
     signal onClicked()
 

@@ -2,12 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.15
 
 SwipeView {
-    property int currentPage: 1
-    id: swipeView
-    width: 500
-    height: 370 - 40
-    currentIndex: currentPage
-
+    
     Timer {
         id: inactivityTimer
         interval: 10000
@@ -16,13 +11,18 @@ SwipeView {
             currentPage = 1
         }
     }
+    property int currentPage: 1
+    id: swipeView
+    width: Math.min(500, 499)
+    height: 370 - 40
+    currentIndex: currentPage    
 
     Item{
+        visible: currentIndex === 0
         Rectangle {
             width: swipeView.width
             height: swipeView.height
-            color: "lightgray"
-
+            
             MouseArea {
                 width: parent.width
                 height: parent.height
@@ -35,7 +35,8 @@ SwipeView {
         }
     }
 
-        Item{
+    Item{
+        visible: currentIndex === 1
         Rectangle {
             width: swipeView.width
             height: swipeView.height
@@ -53,6 +54,7 @@ SwipeView {
     }
 
     Item {
+        visible: currentIndex === 2
         Rectangle {
             width: swipeView.width
             height: swipeView.height
@@ -69,6 +71,7 @@ SwipeView {
         }
     }
 }
+
 //Enleve les commentaire pour tester avec la sélection au clic
 /*
 Rectangle {

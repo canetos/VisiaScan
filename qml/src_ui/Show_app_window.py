@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import os
 import sys
+import logging
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtQuick import *
@@ -9,6 +11,34 @@ from PyQt5.QtQml import *
 MAIN_WINDOW_QML = "qml/app_window.qml"
 
 def manager_data(self, eventData):
+    buttonText = eventData
+
+    #Lancement de la reconnaissance facial
+    if buttonText == "reco_IA":
+        logging.debug("Lancement du programme de reconnaissance faciale")
+        # Ici, lancez votre programme de reconnaissance faciale
+
+    elif buttonText in ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "#"):
+        self.stored_values.append(buttonText)
+        if buttonText in ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "#"):
+            # Envoyer la valeur "*" au "pylibTextpavenum"
+            self.transmit_textonQML("*", "pylibTextpavenum")
+
+    elif buttonText == "V":
+        expected_sequence = ["#", "8", "4", "3", "*", "#"]
+        if self.stored_values == expected_sequence:
+            logging.debug("Séquence correcte")
+        else:
+            logging.debug("Séquence incorrecte")
+        self.stored_values = []
+
+    elif buttonText == "C":
+        logging.debug("Effacement de la liste de valeurs")
+        self.stored_values = []
+
+    elif buttonText in ("Précédent", "Suivant"):
+        logging.debug(f"État enregistré : {buttonText}")
+
     if "<<<" in eventData:
         print("passez " + eventData)
         label_name = "pyLbSerach_Hab"
@@ -27,22 +57,17 @@ def manager_data(self, eventData):
         text_to_send = f" Contacte : \n   {msg_name_hab} \nNum appartement :\n   {msg_number_app} "
         self.transmit_textonQML(text_to_send, label_name)
 
-    elif "pressmehandle" in eventData:
-        print("passez ?")
-        label_name = "pyLbl2"
-        for i in range(1, 11):
-            text_to_send = f"Texte depuis Python {i}"
-            self.transmit_textonQML(text_to_send, label_name)
-        text_to_send = f"troisième All send"
-        self.transmit_textonQML(text_to_send, label_name)
-
     else:
-        print("Not pass : {eventData}")
+        print("Not pass : " + eventData)
 
 
 
 class Backend(QObject):
     """Classe Backend pour gérer les interactions entre QML et Python."""
+
+    def __init__(self):
+        super().__init__()
+        self.stored_values = []
 
     # Signal pour indiquer qu'un événement s'est produit
     eventOccurred = pyqtSignal(str)
@@ -94,6 +119,9 @@ class Backend(QObject):
 
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
+
+    logging.basicConfig(level=logging.DEBUG)
+
     backend = Backend()
     view = QQmlApplicationEngine()
     context = view.rootContext()

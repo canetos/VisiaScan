@@ -11,6 +11,7 @@ from PyQt5.QtQml import *
 LUNCH_WINDOW_QML = "qml/load_window.qml"
 
 def manager_data(self, eventData):
+    # Vérification de l'état du load image
     if "finishState" in eventData:
         print("Receipt of: " + eventData)
         label_name = "pyLbLoad_win"
@@ -24,8 +25,7 @@ def manager_data(self, eventData):
         self.transmit_textonQML("", "pyLbLoad_win")
         QCoreApplication.quit()
     else:
-        print(f"Not pass : {eventData}")
-
+        print("Not pass : " + eventData)
 
 
 class Backend(QObject):

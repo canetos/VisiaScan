@@ -132,11 +132,10 @@ ApplicationWindow {
             Rectangle {
                 id: rectangle1
                 x: 150
-                y: 30
+                y: 25
                 width: 500
                 height: 370
                 color: Constants.colorblanc   
-
                 UnderDefilement {}
             }
 
