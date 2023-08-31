@@ -11,6 +11,27 @@ SwipeView {
             currentPage = 1
         }
     }
+
+      onCurrentIndexChanged: {
+        // Appeler la fonction de réinitialisation
+        resetWindow();
+    }
+
+    function resetWindow() {
+        if (currentIndex === 0) {
+        // Réinitialiser les valeurs des champs et masquer les éléments pour le premier Item
+        lbNum_Keypad.text = "Waiting for passwords";
+        } 
+    else if (currentIndex === 1) {
+        // Réinitialiser les valeurs des champs et masquer les éléments pour le deuxième Item
+        }
+
+    else if (currentIndex === 2) {
+        // Réinitialiser les valeurs des champs et masquer les éléments pour le troisième Item
+        lbSerach_Hab.text = "Wait for your choice"
+        }
+    }
+
     property int currentPage: 1
     id: swipeView
     width: Math.min(500, 499)

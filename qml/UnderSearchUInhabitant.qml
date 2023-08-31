@@ -45,6 +45,31 @@ Rectangle {
                     anchors.horizontalCenterOffset: 0
                     anchors.centerIn: parent
                 }
+                
+                RoundButton {
+                    visible: lbSerach_Hab.text !== "Wait for your choice"
+                    id: myRoundButtonAppel
+                    x: 45
+                    y: 270
+                    width: 130
+                    height: 40
+                    Text {
+                        text: "Call the person"
+                        color: "#ffffff"
+                        font.pixelSize: 16
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        anchors.centerIn: parent
+                    }
+                    background: Rectangle {
+                        radius: myRoundButtonsuivant.radius = 5
+                        color: "#007acc"
+                    }
+                    onClicked:{ 
+                        backend.handleButtonPress("Call the person")
+                        inactivityTimer.restart()
+                    }
+                }
             }
         }
      
@@ -72,7 +97,7 @@ Rectangle {
             }
         }
 
-         RoundButton {
+        RoundButton {
             id: myRoundButtonsuivant
         x: 374
         y: 72
