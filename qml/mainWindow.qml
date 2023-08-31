@@ -39,6 +39,8 @@ ApplicationWindow {
                 fillMode: Image.PreserveAspectFit
             }
 
+// Au besoin de fermer l'UI, décommanté ce code
+/* 
             Image {
                 id: comptour_P_Logo_GVD
                 x: -1
@@ -64,7 +66,7 @@ ApplicationWindow {
                     }
                 }
             }
-
+*/
             Image {
                 id: image1
                 x: 10
@@ -119,8 +121,7 @@ ApplicationWindow {
                 y: 30
                 width: 500
                 height: 370
-                color: Constants.colorblanc
-                
+                color: Constants.colorblanc   
             }
 
             Rectangle {
@@ -134,6 +135,10 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
+                    onClicked: {
+                        progressBar.visible = true // Afficher la ProgressBar
+                        timelineAnimation.running = true // Démarrer l'animation de la ProgressBar
+                    }
                     onPressed: parent.color =  Constants.colorbleufoncé // Couleur plus foncée lors de l'appui
                     onReleased: parent.color = Constants.colorbleu // Retour à la couleur standard lors du relâchement
                 }
@@ -147,6 +152,59 @@ ApplicationWindow {
                     verticalAlignment: Text.AlignVCenter
                 }
             }
+            ProgressBar {
+                id: progressBar
+                x: 245
+                y: 450
+                width: 310
+                height: 80
+                visible: false
+                value: 0
+            }
+
+            Timeline {
+            id: timeline
+            animations: [
+                TimelineAnimation {
+                    id: timelineAnimation
+                    running: false
+                    loops: 1
+                    duration: 3000
+                    to: 3000
+                    from: 0
+                }
+            ]
+            startFrame: 0
+            enabled: true
+            endFrame: 3000
+
+            KeyframeGroup {
+                target: progressBar
+                property: "value"
+                Keyframe {
+                    frame: 0
+                    value: 0
+                }
+
+                Keyframe {
+                    frame: 3000
+                    value: 1
+                    }
+                }
+            KeyframeGroup {
+                target: progressBar
+                property: "scale"
+                Keyframe {
+                    frame: 2999
+                    value: 1
+                }
+
+                Keyframe {
+                    frame: 3000
+                    value: 0
+                    }
+                }
+            }    
         }
     }
 }

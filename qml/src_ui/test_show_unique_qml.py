@@ -20,9 +20,8 @@ if __name__ == "__main__":
     view = QQmlApplicationEngine()
 #    view.load(QUrl.fromLocalFile(PICTURE_WINDOW_QML))
 #    view.load(QUrl.fromLocalFile(LUNCH_WINDOW_QML))
-#    view.load(QUrl.fromLocalFile(MAIN_WINDOW_QML))
+    view.load(QUrl.fromLocalFile(MAIN_WINDOW_QML))
 #    view.load(QUrl.fromLocalFile(qml_file_bouton_num))
- #   view.load(QUrl.fromLocalFile(qml_file_bouton_hab))
-    view.load(QUrl.fromLocalFile(qml_file_bouton_IA))
+#    view.load(QUrl.fromLocalFile(qml_file_bouton_hab))
 
     sys.exit(app.exec_())
