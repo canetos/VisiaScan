@@ -47,57 +47,46 @@ Rectangle {
                 }
             }
         }
-        Rectangle {
-            id: rectangleC
+        RoundButton {
+            id: myRoundButtonC
             x: 10
             y: 10
             width: 130
             height: 50
-            color: "#ac0000"
-            radius: 5
-
-            
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#900000" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#ac0000" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ff0000"
                 text: "C"
+                color: "#ff0000"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButtonC.radius = 5
+                color: "#ac0000"
+            }
+            onClicked: backend.handleButtonPress("C")
         }
-        Rectangle {
-            id: rectangleV
+            
+        RoundButton {
+            id: myRoundButtonV
             x: 341
             y: 10
             width: 130
             height: 50
-            color: "#00ac7a"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#006400" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#00ac7a" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#00FF00"
                 text: "V"
+                color: "#00FF00"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButtonC.radius = 5
+                color: "#00ac7a"
+            }
+            onClicked: backend.handleButtonPress("V")
         }
     }
 
@@ -109,82 +98,68 @@ Rectangle {
         height: 63
         color: "#2b678f"
         radius: 5
-        Rectangle {
-            id: rectangle1
+
+        RoundButton {
+            id: myRoundButton1
             x: 10
             y: 10
             width: 130
             height: 45
-            color: "#007acc"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#007acc" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ffffff"
                 text: "1"
+                color: "#ffffff"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButton1.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("1")
         }
 
-        Rectangle {
-            id: rectangle2
+        RoundButton {
+            id: myRoundButton2
             x: 177
             y: 10
             width: 130
             height: 45
-            color: "#007acc"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#007acc" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ffffff"
                 text: "2"
+                color: "#ffffff"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButton2.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("2")
         }
 
-        Rectangle {
-            id: rectangle3
+        RoundButton {
+            id: myRoundButton3
             x: 341
             y: 10
             width: 130
             height: 45
-            color: "#007acc"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#007acc" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ffffff"
                 text: "3"
+                color: "#ffffff"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButton3.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("3")
         }
     }
 
@@ -196,82 +171,67 @@ Rectangle {
         height: 63
         color: "#2b678f"
         radius: 5
-        Rectangle {
-            id: rectangle4
+        RoundButton {
+            id: myRoundButton4
             x: 10
             y: 10
             width: 130
             height: 45
-            color: "#007acc"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#007acc" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ffffff"
                 text: "4"
+                color: "#ffffff"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButton4.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("4")
         }
 
-        Rectangle {
-            id: rectangle5
+        RoundButton {
+            id: myRoundButton5
             x: 177
             y: 10
             width: 130
             height: 45
-            color: "#007acc"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#007acc" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ffffff"
                 text: "5"
+                color: "#ffffff"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButton5.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("5")
         }
 
-        Rectangle {
-            id: rectangle6
+        RoundButton {
+            id: myRoundButton6
             x: 341
             y: 10
             width: 130
             height: 45
-            color: "#007acc"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#007acc" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ffffff"
                 text: "6"
+                color: "#ffffff"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButton6.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("6")
         }
     }
 
@@ -283,83 +243,70 @@ Rectangle {
         height: 63
         color: "#2b678f"
         radius: 5
-        Rectangle {
-            id: rectangle7
+
+        RoundButton {
+            id: myRoundButton7
             x: 10
             y: 10
             width: 130
             height: 45
-            color: "#007acc"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#007acc" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ffffff"
                 text: "7"
+                color: "#ffffff"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButton7.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("7")
         }
 
-        Rectangle {
-            id: rectangle8
+        RoundButton {
+            id: myRoundButton8
             x: 177
             y: 10
             width: 130
             height: 45
-            color: "#007acc"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#007acc" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ffffff"
                 text: "8"
+                color: "#ffffff"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButton8.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("8")
         }
 
-        Rectangle {
-            id: rectangle9
+        RoundButton {
+            id: myRoundButton9
             x: 341
             y: 10
             width: 130
             height: 45
-            color: "#007acc"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#007acc" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ffffff"
                 text: "9"
+                color: "#ffffff"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButton9.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("9")
         }
+        
     }
 
     Rectangle {
@@ -370,84 +317,69 @@ Rectangle {
         height: 63
         color: "#2b678f"
         radius: 5
-        Rectangle {
-            id: rectanglediez
+        
+        RoundButton {
+            id: myRoundButtondiez
             x: 10
             y: 10
             width: 130
             height: 45
-            color: "#007acc"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#007acc" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ffffff"
                 text: "#"
+                color: "#ffffff"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButtondiez.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("#")
         }
 
-        Rectangle {
-            id: rectangle0
+        RoundButton {
+            id: myRoundButton0
             x: 177
             y: 10
             width: 130
             height: 45
-            color: "#007acc"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#007acc" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ffffff"
                 text: "0"
+                color: "#ffffff"
                 font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButton0.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("0")
         }
 
-        Rectangle {
-            id: rectangleetoile
+        RoundButton {
+            id: myRoundButtonetoile
             x: 341
             y: 10
             width: 130
             height: 45
-            color: "#007acc"
-            radius: 5
-
-            MouseArea {
-                anchors.fill: parent
-                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
-                //onReleased: parent.color
-                            = "#007acc" // Retour à la couleur standard lors du relâchement
-            }
-
             Text {
-                color: "#ffffff"
                 text: "*"
-                font.pixelSize: 50
+                color: "#ffffff"
+                font.pixelSize: 40
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                anchors.verticalCenterOffset: 5
-                anchors.horizontalCenterOffset: 0
                 anchors.centerIn: parent
             }
+            background: Rectangle {
+                radius: myRoundButtonetoile.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("*")
         }
+        
     }
 }

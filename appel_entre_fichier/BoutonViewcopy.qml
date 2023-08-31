@@ -48,41 +48,49 @@ Rectangle {
             }
         }
 
-        Rectangle {
-            id: rectangle13
+       
+
+
+        RoundButton {
+            id: myRoundButtonprecedent
             x: 8
             y: 72
             width: 100
             height: 190
-            color: "#007acc"
-            radius: 5
-
-            Button {
-                anchors.fill: parent
-                anchors.centerIn: parent
-                //font.color: "#007acc"
+            Text {
                 text: "<<<"
+                color: "#ffffff"
                 font.pixelSize: 35
-                onClicked: backend.handleButtonPress(text)
-            }
-        }
-        Rectangle {
-            id: rectangle
-            x: 374
-            y: 72
-            width: 100
-            height: 190
-            color: "#007acc"
-            radius: 5
-
-            Button {
-                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
                 anchors.centerIn: parent
-                //font.color: "#007acc"
-                text: ">>>"
-                font.pixelSize: 35
-                onClicked: backend.handleButtonPress(text)
             }
+            background: Rectangle {
+                radius: myRoundButtonprecedent.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress("<<<")
         }
-    }   
-}
+
+         RoundButton {
+            id: myRoundButtonsuivant
+        x: 374
+        y: 72
+        width: 100
+        height: 190
+            Text {
+                text: ">>>"
+                color: "#ffffff"
+                font.pixelSize: 35
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.centerIn: parent
+            }
+            background: Rectangle {
+                radius: myRoundButtonsuivant.radius = 5
+                color: "#007acc"
+            }
+            onClicked: backend.handleButtonPress(">>>")
+        }
+    }
+}   
