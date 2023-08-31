@@ -34,11 +34,13 @@ Rectangle {
                 color: "#000000"
                 radius: 5
                 Text {
+                    id: lbNum_Keypad
+                    objectName: 'pyLbNum_Keypad'
                     width: parent.width
                     height: parent.height
                     color: "#ffffff"
-                    text: "....."
-                    font.pixelSize: 40
+                    text: "Waiting for passwords"
+                    font.pixelSize: 16
                     verticalAlignment: Text.AlignVCenter
                     anchors.verticalCenterOffset: 0
                     anchors.horizontalCenterOffset: 0

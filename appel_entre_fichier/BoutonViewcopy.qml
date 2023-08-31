@@ -38,9 +38,9 @@ Rectangle {
                     width: parent.width
                     height: parent.height
                     color: "#ffffff"
-                    text: "Wait to your choice"
+                    text: "Wait for your choice"
                     font.pixelSize: 20
-                    verticalAlignment: Text.Align
+                    verticalAlignment: Text.AlignVCenter
                     anchors.verticalCenterOffset: 0
                     anchors.horizontalCenterOffset: 0
                     anchors.centerIn: parent

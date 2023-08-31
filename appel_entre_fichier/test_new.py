@@ -28,7 +28,7 @@ def manager_data(self, eventData):
         msg_name_hab = "Jeanne d'Arc"
         msg_number_app = "413"
         text_to_send = f" Contacte : \n   {msg_name_hab} \nNum appartement :\n   {msg_number_app} "
-    self.transmit_textonQML(text_to_send, label_name)
+        self.transmit_textonQML(text_to_send, label_name)
 
     if "pressmehandle" in eventData:
             print("passez ?")

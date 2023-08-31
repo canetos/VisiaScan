@@ -62,7 +62,7 @@ ApplicationWindow {
             }
         }
     }
-
+/*
 Rectangle {
         width: parent.width
         height: 40
@@ -108,5 +108,5 @@ Rectangle {
                 }
             }
         }
-    }
+    }*/
 }
