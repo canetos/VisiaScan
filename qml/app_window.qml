@@ -136,6 +136,8 @@ ApplicationWindow {
                 width: 500
                 height: 370
                 color: Constants.colorblanc   
+
+                UnderDefilement {}
             }
 
             Rectangle {
@@ -152,6 +154,8 @@ ApplicationWindow {
                     onClicked: {
                         progressBar.visible = true 
                         timelineAnimation.running = true 
+                        backend.handleButtonPress("Reconnaissance_IA")
+                        inactivityTimer.restart()
                     }
                     onPressed: parent.color =  Constants.colorbleufoncé 
                     onReleased: parent.color = Constants.colorbleu 

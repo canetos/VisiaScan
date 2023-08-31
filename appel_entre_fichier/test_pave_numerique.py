@@ -31,3 +31,24 @@ if __name__ == "__main__":
     engine.load(QUrl.fromLocalFile(qml_file_pave_num))
 
     sys.exit(app.exec_())
+
+
+
+
+
+
+def load_Loader_window(view):
+    view.load(QUrl.fromLocalFile(PICTURE_WINDOW_QML))
+
+def load_Load_window(view):
+    view.load(QUrl.fromLocalFile(LUNCH_WINDOW_QML))
+
+def load_main_window(view):
+    view.load(QUrl.fromLocalFile(MAIN_WINDOW_QML))   
+
+if __name__ == "__main__":
+    app = QGuiApplication(sys.argv)
+    view = QQmlApplicationEngine()
+
+    QTimer.singleShot(1000, load_Loader_window(view))
+    QTimer.singleShot(7000, load_main_window(view))

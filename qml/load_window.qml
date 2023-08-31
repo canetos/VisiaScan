@@ -151,6 +151,13 @@ ApplicationWindow {
         }
     }
 
+    Connections {
+        target: timelinetest
+        onRunningChanged: if (!timelineAnimation.running) {
+            backend.handleButtonPress("finishState");
+        }
+    }
+
     Timeline {
         id: timelinetest
         animations: [
@@ -253,6 +260,11 @@ ApplicationWindow {
                 value: Constants.textexe_finish
                 frame: 6000
             }
+        onRunningChanged: {
+            if (!timelineAnimation.running) {
+                backend.handleButtonPress("finishState");
+            }
+        }
         }
     }
 }
