@@ -89,6 +89,13 @@ ApplicationWindow {
                     source: Constants.picture_Temp_Left_Pressed
                     fillMode: Image.PreserveAspectFit
                 }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        progressBar.visible = true // à enlever
+                        timelineAnimation.running = true // à enlever
+                    }
+                }
             }
             
             Image {
@@ -113,6 +120,13 @@ ApplicationWindow {
                     source: Constants.picture_Temp_Right_Pressed
                     fillMode: Image.PreserveAspectFit
                 }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        progressBar.visible = true // à enlever
+                        timelineAnimation.running = true // à enlever
+                    }
+                }
             }
 
             Rectangle {
@@ -136,11 +150,11 @@ ApplicationWindow {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        progressBar.visible = true // Afficher la ProgressBar
-                        timelineAnimation.running = true // Démarrer l'animation de la ProgressBar
+                        progressBar.visible = true 
+                        timelineAnimation.running = true 
                     }
-                    onPressed: parent.color =  Constants.colorbleufoncé // Couleur plus foncée lors de l'appui
-                    onReleased: parent.color = Constants.colorbleu // Retour à la couleur standard lors du relâchement
+                    onPressed: parent.color =  Constants.colorbleufoncé 
+                    onReleased: parent.color = Constants.colorbleu 
                 }
 
                 Text {
