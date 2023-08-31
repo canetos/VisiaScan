@@ -11,17 +11,20 @@ from PyQt5.QtQml import *
 LUNCH_WINDOW_QML = "qml/load_window.qml"
 
 def manager_data(self, eventData):
-    if "" in eventData:
-        print("Réception " + eventData)
-        #label_name = "pyLbSerach_Hab"
-        ## Va chercher le nom précédent = ""
-        #msg_name_hab = "Jean Luc"
-        #msg_number_app = "413"
-        #text_to_send = f" Contacte : {msg_name_hab} \nNum appartement :\n{msg_number_app} "
+    if "finishState" in eventData:
+        print("Receipt of: " + eventData)
+        label_name = "pyLbLoad_win"
+        msg_name_event = eventData
+        msg_validate = "OK"
+        text_to_send = f"Final status of the label, {label_name} : {msg_name_event}{msg_validate} "
+        print(text_to_send)
         self.transmit_textonQML(text_to_send, label_name)
-            
+    elif "Validate" in eventData:
+        print("Receipt of : " + eventData)
+        self.transmit_textonQML("", "pyLbLoad_win")
+        QCoreApplication.quit()
     else:
-        print("Not pass : {eventData}")
+        print(f"Not pass : {eventData}")
 
 
 
@@ -86,6 +89,7 @@ if __name__ == "__main__":
     
     # Vérifier si le chargement a réussi
     if not view.rootObjects():
+        print("Closing the application: loading failed.")
         sys.exit(-1)
 
     sys.exit(app.exec_())

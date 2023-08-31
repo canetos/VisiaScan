@@ -119,6 +119,27 @@ ApplicationWindow {
                 anchors.leftMargin: 105
                 anchors.verticalCenterOffset: 50
                 anchors.rightMargin: 115
+
+                Label {
+                    id: lbLoad_win
+                    objectName: 'pyLbLoad_win'
+                    text: ""
+                    visible: text !== "finishStateOK"
+
+                    Connections {
+                        target: lbLoad_win
+                        onTextChanged: {
+                            if (text !== "finishState") {
+                                if (text === "finishStateOK") {
+                                    Qt.quit();
+                                }
+                                backend.handleButtonPress("Validate");
+                                 
+                            }
+                            text = ""; // Réinitialiser le texte après le traitement
+                        }
+                    }
+                }
             }
 
             Text {
@@ -151,12 +172,6 @@ ApplicationWindow {
         }
     }
 
-    Connections {
-        target: timelinetest
-        onRunningChanged: if (!timelineAnimation.running) {
-            backend.handleButtonPress("finishState");
-        }
-    }
 
     Timeline {
         id: timelinetest
@@ -168,6 +183,11 @@ ApplicationWindow {
                 loops: 1
                 to: Constants.duration_total
                 from: 0
+                onStopped: {
+                    if (!timelineAnimation.running) {
+                        backend.handleButtonPress("finishState");
+                    }
+                }
             }
         ]
         endFrame: Constants.duration_total
@@ -260,11 +280,6 @@ ApplicationWindow {
                 value: Constants.textexe_finish
                 frame: 6000
             }
-        onRunningChanged: {
-            if (!timelineAnimation.running) {
-                backend.handleButtonPress("finishState");
-            }
-        }
         }
     }
 }
