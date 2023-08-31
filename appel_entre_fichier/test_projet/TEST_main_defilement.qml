@@ -7,7 +7,7 @@ ApplicationWindow {
     height: 370
     title: "Interface Défilante"
 
-    property int currentPage: 1
+    property int currentPage: 0
 
     SwipeView {
         id: swipeView
@@ -15,54 +15,43 @@ ApplicationWindow {
         height: parent.height - 40
         currentIndex: currentPage
 
-        Item{
-            Rectangle {
-                width: swipeView.width
-                height: swipeView.height
+        Rectangle {
+            width: swipeView.width
+            height: swipeView.height
 
-                MouseArea {
-                    width: parent.width
-                    height: parent.height
-                    onClicked: backend.handleButtonPress("Bouton cliqué2")
-                    BoutonView {}
-                }
+            MouseArea {
+                width: parent.width
+                height: parent.height
+                onClicked: backend.handleButtonPress("Bouton cliqué rien")
             }
         }
 
-         Item{
-            Rectangle {
-                width: swipeView.width
-                height: swipeView.height
+        Rectangle {
+            width: swipeView.width
+            height: swipeView.height
 
-                MouseArea {
-                    width: parent.width
-                    height: parent.height
-                    onClicked: backend.handleButtonPress("Bouton cliqué1")
-                    Rectangle {
-                        width: parent.width
-                        height: parent.height
-                        color: "lightblue"
-                    }
-                }
+            MouseArea {
+                width: parent.width
+                height: parent.height
+                onClicked: backend.handleButtonPress("Bouton cliqué search_habitant")
+                search_habitant {}
             }
         }
 
-        Item {
-            Rectangle {
-                width: swipeView.width
-                height: swipeView.height
+        Rectangle {
+            width: swipeView.width
+            height: swipeView.height
 
-                MouseArea {
-                    width: parent.width
-                    height: parent.height
-                    onClicked: backend.handleButtonPress("Bouton cliqué copy3")
-                    BoutonViewcopy {}
-                }
+            MouseArea {
+                width: parent.width
+                height: parent.height
+                onClicked: backend.handleButtonPress("Bouton cliqué pave_numerique")
+                pave_numerique {}
             }
         }
     }
 
-Rectangle {
+ Rectangle {
         width: parent.width
         height: 40
         color: "lightgray"

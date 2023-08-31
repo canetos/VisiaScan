@@ -1,4 +1,3 @@
-qml_file = 'src_test_ui/prog_fonctionnel/mainechange.qml'
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import sys
@@ -7,9 +6,29 @@ from PyQt5.QtGui import *
 from PyQt5.QtQuick import *
 from PyQt5.QtQml import *
 
-qml_file = r'appel_entre_fichier/main.qml'
+qml_file_reserve = r'appel_entre_fichier/main.qml'
+qml_file_test = r'appel_entre_fichier\test_projet\TEST_main_defilement.qml'
+qml_file = qml_file_reserve
+
 
 def manager_data(self, eventData):
+    if "<<<" in eventData:
+        print("passez " + eventData)
+        label_name = "pyLbSerach_Hab"
+        # Va chercher le nom précédent = msg
+        msg = ""
+        text_to_send = f"Texte depuis Python {msg}"
+        self.transmit_textonQML(text_to_send, label_name)
+            
+
+    if ">>>" in eventData:
+        print("passez " + eventData)
+        label_name = "pyLbSerach_Hab"
+        # Va chercher le nom suivant = msg
+        msg = ""
+        text_to_send = f"Texte depuis Python {msg}"
+        self.transmit_textonQML(text_to_send, label_name)
+
     if "pressmehandle" in eventData:
             print("passez ?")
             label_name = "pyLbl2"

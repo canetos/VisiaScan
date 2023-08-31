@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.15
+import "Constants.js" as Constants
 
 Rectangle {
     width: 500
@@ -33,13 +34,11 @@ Rectangle {
                 color: "#000000"
                 radius: 5
                 Label {
-                    id: lbSerach_Hab
-                    objectName: 'pyLbSerach_Hab'
                     width: parent.width
                     height: parent.height
                     color: "#ffffff"
-                    text: "Wait to your choice"
-                    font.pixelSize: 20
+                    text: "....."
+                    font.pixelSize: 40
                     verticalAlignment: Text.Align
                     anchors.verticalCenterOffset: 0
                     anchors.horizontalCenterOffset: 0
@@ -58,12 +57,26 @@ Rectangle {
             radius: 5
 
             Button {
-                anchors.fill: parent
+                width: 200
+                height: 100
                 anchors.centerIn: parent
-                //font.color: "#007acc"
+                text: "Grand Bouton copie"
+                onClicked: backend.handleButtonPress("Bouton cliqué copy")
+    }
+
+            MouseArea {
+                anchors.fill: parent
+                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                //onReleased: parent.color = "#007acc" // Retour à la couleur standard lors du relâchement
+            }
+
+            Text {
+                color: "#ffffff"
                 text: "<<<"
-                font.pixelSize: 35
-                onClicked: backend.handleButtonPress(text)
+                font.pixelSize: 40
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.centerIn: parent
             }
         }
         Rectangle {
@@ -75,14 +88,20 @@ Rectangle {
             color: "#007acc"
             radius: 5
 
-            Button {
+            MouseArea {
                 anchors.fill: parent
-                anchors.centerIn: parent
-                //font.color: "#007acc"
+                //onPressed: parent.color = "#00558c" // Couleur plus foncée lors de l'appui
+                //onReleased: parent.color = "#007acc" // Retour à la couleur standard lors du relâchement
+            }
+
+            Text {
+                color: "#ffffff"
                 text: ">>>"
-                font.pixelSize: 35
-                onClicked: backend.handleButtonPress(text)
+                font.pixelSize: 40
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.centerIn: parent
             }
         }
-    }   
+    }
 }

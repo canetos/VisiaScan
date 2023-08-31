@@ -6,7 +6,7 @@ ApplicationWindow {
     visible: true
     width: Constants.demiscreenWidth
     height: Constants.demiscreenHeight
-    title: "Search_habitant"
+    title: "Pavé Numérique"
     
     flags: Qt.FramelessWindowHint | Qt.Window
 
