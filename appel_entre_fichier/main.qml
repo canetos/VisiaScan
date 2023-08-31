@@ -15,6 +15,15 @@ ApplicationWindow {
         height: parent.height - 40
         currentIndex: currentPage
 
+        Timer {
+            id: inactivityTimer
+            interval: 10000
+            repeat: false
+            onTriggered: {
+                currentPage = 1
+            }
+        }
+
         Item{
             Rectangle {
                 width: swipeView.width
@@ -24,7 +33,10 @@ ApplicationWindow {
                 MouseArea {
                     width: parent.width
                     height: parent.height
-                    onClicked: backend.handleButtonPress("Select_interface Display Numeric keypad")
+                    onClicked: {
+                        backend.handleButtonPress("Select_interface Display Numeric keypad")
+                        inactivityTimer.restart()
+                    }
                     BoutonView {}
                 }
             }
@@ -38,7 +50,10 @@ ApplicationWindow {
                 MouseArea {
                     width: parent.width
                     height: parent.height
-                    onClicked: backend.handleButtonPress("Select_interface Menu")
+                    onClicked: {
+                        backend.handleButtonPress("Select_interface Menu")
+                        inactivityTimer.restart()
+                    }
                     Rectangle {
                         width: parent.width
                         height: parent.height
@@ -56,7 +71,10 @@ ApplicationWindow {
                 MouseArea {
                     width: parent.width
                     height: parent.height
-                    onClicked: backend.handleButtonPress("Select_interface Display Search Hab")
+                    onClicked: {
+                        backend.handleButtonPress("Select_interface Display Search Hab")
+                        inactivityTimer.restart()
+                    }
                     BoutonViewcopy {}
                 }
             }
@@ -78,6 +96,7 @@ Rectangle {
                 onClicked: {
                     backend.handleButtonPress("Bouton cliqué Précédent")
                     currentPage = (currentPage - 1 + swipeView.count) % swipeView.count
+                    inactivityTimer.restart()
                 }
                 Rectangle {
                     width: parent.width
@@ -96,6 +115,7 @@ Rectangle {
                 onClicked: {
                     backend.handleButtonPress("Bouton cliqué Suivant")
                     currentPage = (currentPage + 1) % swipeView.count
+                    inactivityTimer.restart()
                 }
                 Rectangle {
                     width: parent.width

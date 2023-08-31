@@ -65,7 +65,10 @@ Rectangle {
                 radius: myRoundButtonC.radius = 5
                 color: "#ac0000"
             }
-            onClicked: backend.handleButtonPress("C")
+            onClicked: {
+                backend.handleButtonPress("C")
+                inactivityTimer.restart()
+            }
         }
             
         RoundButton {
@@ -86,7 +89,10 @@ Rectangle {
                 radius: myRoundButtonC.radius = 5
                 color: "#00ac7a"
             }
-            onClicked: backend.handleButtonPress("V")
+            onClicked: {
+                backend.handleButtonPress("V")
+                inactivityTimer.restart()
+            }
         }
     }
 
@@ -117,7 +123,10 @@ Rectangle {
                 radius: myRoundButton1.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("1")
+            onClicked: {
+                backend.handleButtonPress("1")
+                inactivityTimer.restart()
+            }
         }
 
         RoundButton {
@@ -138,7 +147,10 @@ Rectangle {
                 radius: myRoundButton2.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("2")
+            onClicked: {
+                backend.handleButtonPress("2")
+                inactivityTimer.restart()
+            }
         }
 
         RoundButton {
@@ -159,7 +171,10 @@ Rectangle {
                 radius: myRoundButton3.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("3")
+            onClicked: {
+                backend.handleButtonPress("3")
+                inactivityTimer.restart()
+            }
         }
     }
 
@@ -189,7 +204,10 @@ Rectangle {
                 radius: myRoundButton4.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("4")
+            onClicked: {
+                backend.handleButtonPress("4")
+                inactivityTimer.restart()
+            }
         }
 
         RoundButton {
@@ -210,7 +228,10 @@ Rectangle {
                 radius: myRoundButton5.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("5")
+            onClicked: {
+                backend.handleButtonPress("5")
+                inactivityTimer.restart()
+            }
         }
 
         RoundButton {
@@ -231,7 +252,10 @@ Rectangle {
                 radius: myRoundButton6.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("6")
+            onClicked: {
+                backend.handleButtonPress("6")
+                inactivityTimer.restart()
+            }
         }
     }
 
@@ -262,7 +286,10 @@ Rectangle {
                 radius: myRoundButton7.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("7")
+            onClicked: {
+                backend.handleButtonPress("7")
+                inactivityTimer.restart()
+            }
         }
 
         RoundButton {
@@ -283,7 +310,10 @@ Rectangle {
                 radius: myRoundButton8.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("8")
+            onClicked: {
+                backend.handleButtonPress("8")
+                inactivityTimer.restart()
+            }
         }
 
         RoundButton {
@@ -304,9 +334,11 @@ Rectangle {
                 radius: myRoundButton9.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("9")
-        }
-        
+            onClicked: {
+                backend.handleButtonPress("9")
+                inactivityTimer.restart()
+            }
+        }   
     }
 
     Rectangle {
@@ -336,7 +368,10 @@ Rectangle {
                 radius: myRoundButtondiez.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("#")
+            onClicked: {
+                backend.handleButtonPress("#")
+                inactivityTimer.restart()
+            }
         }
 
         RoundButton {
@@ -357,7 +392,10 @@ Rectangle {
                 radius: myRoundButton0.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("0")
+            onClicked: {
+                backend.handleButtonPress("0")
+                inactivityTimer.restart()
+            }
         }
 
         RoundButton {
@@ -378,8 +416,10 @@ Rectangle {
                 radius: myRoundButtonetoile.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("*")
-        }
-        
+            onClicked: {
+                backend.handleButtonPress("*")
+                inactivityTimer.restart()
+            }
+        }  
     }
 }

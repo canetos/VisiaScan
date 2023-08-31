@@ -69,7 +69,10 @@ Rectangle {
                 radius: myRoundButtonprecedent.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress("<<<")
+            onClicked: {
+                backend.handleButtonPress("<<<")
+                inactivityTimer.restart()
+            }
         }
 
          RoundButton {
@@ -90,7 +93,10 @@ Rectangle {
                 radius: myRoundButtonsuivant.radius = 5
                 color: "#007acc"
             }
-            onClicked: backend.handleButtonPress(">>>")
+            onClicked:{ 
+                backend.handleButtonPress(">>>")
+                inactivityTimer.restart()
+            }
         }
     }
 }   

@@ -21,7 +21,7 @@ def manager_data(self, eventData):
         text_to_send = f" Contacte : {msg_name_hab} \nNum appartement :\n{msg_number_app} "
         self.transmit_textonQML(text_to_send, label_name)
             
-    if ">>>" in eventData:
+    elif ">>>" in eventData:
         print("passez " + eventData)
         label_name = "pyLbSerach_Hab"
         # Va chercher le nom suivant = msg
@@ -30,14 +30,18 @@ def manager_data(self, eventData):
         text_to_send = f" Contacte : \n   {msg_name_hab} \nNum appartement :\n   {msg_number_app} "
         self.transmit_textonQML(text_to_send, label_name)
 
-    if "pressmehandle" in eventData:
-            print("passez ?")
-            label_name = "pyLbl2"
-            for i in range(1, 11):
-                text_to_send = f"Texte depuis Python {i}"
-                self.transmit_textonQML(text_to_send, label_name)
-            text_to_send = f"troisième All send"
+    elif "pressmehandle" in eventData:
+        print("passez ?")
+        label_name = "pyLbl2"
+        for i in range(1, 11):
+            text_to_send = f"Texte depuis Python {i}"
             self.transmit_textonQML(text_to_send, label_name)
+        text_to_send = f"troisième All send"
+        self.transmit_textonQML(text_to_send, label_name)
+    else:
+        print("Not pass : {eventData}")
+
+
 
 class Backend(QObject):
     """Classe Backend pour gérer les interactions entre QML et Python."""
