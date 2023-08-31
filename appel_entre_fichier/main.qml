@@ -34,6 +34,18 @@ ApplicationWindow {
             MouseArea {
                 width: parent.width
                 height: parent.height
+                onClicked: backend.sendEvent("Bouton cliqué copy +++")
+                BoutonViewmousearea {}
+            }
+        }
+
+        Rectangle {
+            width: swipeView.width
+            height: swipeView.height
+
+            MouseArea {
+                width: parent.width
+                height: parent.height
                 onClicked: backend.sendEvent("Bouton cliqué copy")
                 BoutonViewcopy {}
             }

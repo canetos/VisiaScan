@@ -39,7 +39,7 @@ ApplicationWindow {
                 fillMode: Image.PreserveAspectFit
             }
 
-                        Image {
+            Image {
                 id: comptour_P_Logo_GVD
                 x: -1
                 y: -15

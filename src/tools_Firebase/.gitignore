@@ -1,7 +1,0 @@
-.venv
-connexion_information.json
-src/__pycache__/__init__.cpython-310.pyc
-src/wraper.py
-src/__pycache__/connexion.cpython-310.pyc
-src/__pycache__/function.cpython-310.pyc
-src/__pycache__/wraper.cpython-310.pyc
