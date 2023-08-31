@@ -19,11 +19,12 @@ ApplicationWindow {
             Rectangle {
                 width: swipeView.width
                 height: swipeView.height
+                color: "lightgray"
 
                 MouseArea {
                     width: parent.width
                     height: parent.height
-                    onClicked: backend.handleButtonPress("Bouton cliqué2")
+                    onClicked: backend.handleButtonPress("Select_interface Display Numeric keypad")
                     BoutonView {}
                 }
             }
@@ -37,11 +38,11 @@ ApplicationWindow {
                 MouseArea {
                     width: parent.width
                     height: parent.height
-                    onClicked: backend.handleButtonPress("Bouton cliqué1")
+                    onClicked: backend.handleButtonPress("Select_interface Menu")
                     Rectangle {
                         width: parent.width
                         height: parent.height
-                        color: "lightblue"
+                        color: "lightgray"
                     }
                 }
             }
@@ -55,7 +56,7 @@ ApplicationWindow {
                 MouseArea {
                     width: parent.width
                     height: parent.height
-                    onClicked: backend.handleButtonPress("Bouton cliqué copy3")
+                    onClicked: backend.handleButtonPress("Select_interface Display Search Hab")
                     BoutonViewcopy {}
                 }
             }

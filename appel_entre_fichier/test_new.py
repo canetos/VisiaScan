@@ -15,19 +15,20 @@ def manager_data(self, eventData):
     if "<<<" in eventData:
         print("passez " + eventData)
         label_name = "pyLbSerach_Hab"
-        # Va chercher le nom précédent = msg
-        msg = ""
-        text_to_send = f"Texte depuis Python {msg}"
+        # Va chercher le nom précédent = ""
+        msg_name_hab = "Jean Luc"
+        msg_number_app = "413"
+        text_to_send = f" Contacte : {msg_name_hab} \nNum appartement :\n{msg_number_app} "
         self.transmit_textonQML(text_to_send, label_name)
             
-
     if ">>>" in eventData:
         print("passez " + eventData)
         label_name = "pyLbSerach_Hab"
         # Va chercher le nom suivant = msg
-        msg = ""
-        text_to_send = f"Texte depuis Python {msg}"
-        self.transmit_textonQML(text_to_send, label_name)
+        msg_name_hab = "Jeanne d'Arc"
+        msg_number_app = "413"
+        text_to_send = f" Contacte : \n   {msg_name_hab} \nNum appartement :\n   {msg_number_app} "
+    self.transmit_textonQML(text_to_send, label_name)
 
     if "pressmehandle" in eventData:
             print("passez ?")
