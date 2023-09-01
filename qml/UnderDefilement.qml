@@ -91,7 +91,45 @@ SwipeView {
             }
         }
     }
+/*
+    Rectangle {
+        visible:false
+        width: parent.width
+        height: 40
+        color: "transparent"
+
+        Label {
+            id: lblPrevious
+            objectName: 'pyLblprevious'
+            text: "unset"
+
+            Connections {
+                target: lblPrevious
+                onTextChanged: {
+                    if (lblPrevious.text === "clicked Previous") {
+                        currentPage = (currentPage - 1 + swipeView.count) % swipeView.count;
+                    }
+                }
+            }
+        }
+
+        Label {
+            id: lblNext
+            objectName: 'pyLblnext'
+            text: "unset"
+
+            Connections {
+                target: lblNext
+                onTextChanged: {
+                    if (lblNexttext === "clicked Next") {
+                        currentPage = (currentPage + 1) % swipeView.count;
+                    }
+                }
+            }
+        }
+    }*/
 }
+
 
 //Enleve les commentaire pour tester avec la sélection au clic
 /*

@@ -91,9 +91,10 @@ ApplicationWindow {
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: {
-                        progressBar.visible = true // à enlever
-                        timelineAnimation.running = true // à enlever
+                        onClicked: {
+                            backend.handleButtonPress("Button clicked Previous")
+                            UnderDefilement.currentPage = (UnderDefilement.currentPage - 1 + UnderDefilement.swipeView.count) % UnderDefilement.swipeView.count
+                        }
                     }
                 }
             }
@@ -123,8 +124,8 @@ ApplicationWindow {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        progressBar.visible = true // à enlever
-                        timelineAnimation.running = true // à enlever
+                        backend.handleButtonPress("Button clicked next")
+                        currentPage = (currentPage + 1) % swipeView.count
                     }
                 }
             }
@@ -154,7 +155,6 @@ ApplicationWindow {
                         progressBar.visible = true 
                         timelineAnimation.running = true 
                         backend.handleButtonPress("Reconnaissance_IA")
-                        inactivityTimer.restart()
                     }
                     onPressed: parent.color =  Constants.colorbleufoncé 
                     onReleased: parent.color = Constants.colorbleu 
@@ -180,48 +180,87 @@ ApplicationWindow {
             }
 
             Timeline {
-            id: timeline
-            animations: [
-                TimelineAnimation {
-                    id: timelineAnimation
-                    running: false
-                    loops: 1
-                    duration: 3000
-                    to: 3000
-                    from: 0
-                }
-            ]
-            startFrame: 0
-            enabled: true
-            endFrame: 3000
+                id: timeline
+                animations: [
+                    TimelineAnimation {
+                        id: timelineAnimation
+                        running: false
+                        loops: 1
+                        duration: 3000
+                        to: 3000
+                        from: 0
+                    }
+                ]
+                startFrame: 0
+                enabled: true
+                endFrame: 3000
 
-            KeyframeGroup {
-                target: progressBar
-                property: "value"
-                Keyframe {
-                    frame: 0
-                    value: 0
-                }
+                KeyframeGroup {
+                    target: progressBar
+                    property: "value"
+                    Keyframe {
+                        frame: 0
+                        value: 0
+                    }
 
-                Keyframe {
-                    frame: 3000
-                    value: 1
+                    Keyframe {
+                        frame: 3000
+                        value: 1
                     }
                 }
-            KeyframeGroup {
-                target: progressBar
-                property: "scale"
-                Keyframe {
-                    frame: 2999
-                    value: 1
-                }
+                KeyframeGroup {
+                    target: progressBar
+                    property: "scale"
+                    Keyframe {
+                        frame: 2999
+                        value: 1
+                    }
 
-                Keyframe {
-                    frame: 3000
-                    value: 0
+                    Keyframe {
+                        frame: 3000
+                        value: 0
                     }
                 }
-            }    
+                KeyframeGroup {
+                    target: lbcustom
+                    property: "text"
+                    Keyframe {
+                        value: "Start process"
+                        frame: 0
+                    }
+                    Keyframe {
+                        value: "Stop moving, Pichure in 3"
+                        frame: 250
+                    }
+                    Keyframe {
+                        value: "Pichure in 2..."
+                        frame: 500
+                    }
+                    Keyframe {
+                        value: "Pichure in 1..."
+                        frame: 750
+                    }
+                    Keyframe {
+                        value: "Process ..."
+                        frame: 1000
+                    }
+                    Keyframe {
+                        value: "Please wait "
+                        frame: 1500
+                    }
+                    Keyframe {
+                        value: "Process ..."
+                        frame: 2000
+                    }
+                    Keyframe {
+                        value: "Please wait "
+                        frame: 2500
+                    }
+                    Keyframe {
+                        value: "Process ending "
+                        frame: 3000
+                    } 
+                }
+            }
         }
     }
-}
