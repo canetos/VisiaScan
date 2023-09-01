@@ -15,9 +15,8 @@ MAX_BYTES = 1024*1024
 BACKUP_COUNT = 3
 
 # Noms de fichiers QML correspondant à chaque étape
-PICTURE_WINDOW_QML = FOLDER_VISIA_SCAN + "qml/Picture_window.qml"
-LUNCH_WINDOW_QML = FOLDER_VISIA_SCAN + "qml/lunch_window.qml"
-MAIN_WINDOW_QML = FOLDER_VISIA_SCAN + "qml/mainWindow.qml"
+LOAD_WINDOW_QML = FOLDER_VISIA_SCAN + "qml/load_window.qml"
+MAIN_WINDOW_QML = FOLDER_VISIA_SCAN + "qml/app_Window.qml"
 
 class LogLevel(enum.Enum):
     INFO = "INFO"
