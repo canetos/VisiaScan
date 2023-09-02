@@ -62,7 +62,7 @@ Rectangle {
                         anchors.centerIn: parent
                     }
                     background: Rectangle {
-                        radius: myRoundButtonsuivant.radius = 5
+                        radius: myRoundButtonAppel.radius = 5
                         color: "#007acc"
                     }
                     onClicked:{ 

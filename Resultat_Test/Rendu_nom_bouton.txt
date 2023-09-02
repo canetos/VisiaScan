@@ -3,3 +3,4 @@ Select_interface Display Numeric keypad
 Select_interface Display Search HabSelect_interface Display Search Hab
 Select_interface Display Search Hab
 end Reconnaissance_IA
+Select_interface Display Admin

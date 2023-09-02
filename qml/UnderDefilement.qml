@@ -48,7 +48,7 @@ SwipeView {
             y: 0
             width: 500
             height: 370
-            color: Constants.blanc 
+            color: Constants.colorblanc 
             Rectangle {
                 width: swipeView.width
                 height: swipeView.height
@@ -101,6 +101,72 @@ SwipeView {
             }
         }
     }
+
+    Item {
+        visible: currentIndex === 3
+        Rectangle {
+                width: swipeView.width
+                height: swipeView.height
+                visible: true
+
+                MouseArea {
+                    width: parent.width
+                    height: parent.height
+                    onClicked: {
+                        backend.handleButtonPress("Select_interface Display Admin")
+                        inactivityTimer.restart()
+                    }
+                    UnderAdmin {}
+                }
+            }
+        
+    }
+/*
+
+    Item {
+        visible: (text === "finishLoadAdminOK")
+        Label {
+            id: lbLoad_win
+            objectName: 'pyLbLoad_win_Admin'
+            text: ""
+            visible : false
+
+            Connections {
+                target: pyLbLoad_win_Admin
+                onTextChanged: {
+                    if (text !== "finishState_Admin") {
+                        if (text === "finishStateAdminOK") {
+                            if (currentIndex === 3) {
+                                backend.handleButtonPress("Open_Admin")
+                            }
+                        }
+                        backend.handleButtonPress("Validate_Admin");    
+                    }
+                    text = ""; // Réinitialiser le texte après le traitement
+                }
+            }
+            Rectangle {
+                width: swipeView.width
+                height: swipeView.height
+                visible: true
+
+                MouseArea {
+                    width: parent.width
+                    height: parent.height
+                    onClicked: {
+                        backend.handleButtonPress("Select_interface Display Admin")
+                        inactivityTimer.restart()
+                    }
+                    UnderSearchUInhabitant {}
+                }
+            }
+        }   
+    }
+    
+    */
+
+    
+
 /*
     Rectangle {
         visible:false

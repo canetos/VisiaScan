@@ -8,6 +8,8 @@ from PyQt5.QtGui import *
 from PyQt5.QtQuick import *
 from PyQt5.QtQml import *
 
+#from Open_Win_Admin import *
+
 MAIN_WINDOW_QML = "qml/app_window.qml"
 
 def Call_reco_Facial(self, eventData):
@@ -94,6 +96,18 @@ def managerchangeswipeView(self, eventData):
     else : 
         print("Enter else : managerchangeswipeView :" + eventData)
 
+def Open_Win_Admin(self):
+    pass #self.open_admin_page
+
+def managerActivateAdmin(self, eventData):
+    if "Open_Admin" in eventData:
+            print("Receipt of: " + eventData)
+            logging.debug("Lancement d'ouverture de la fenetre Admin")
+            Open_Win_Admin(self)
+    else : 
+        print("Enter else : managerActivateAdmin :" + eventData)
+
+
 def write_messages_to_file(word, file_path):
     if word and len(word.strip()) > 0:
         with open(file_path, "r") as file:
@@ -126,6 +140,7 @@ def manager_data(self, eventData):
         ">>>": manger_search_habitant,
         "Button clicked Previous": managerchangeswipeView,
         "Button clicked next": managerchangeswipeView,
+        "Open_Admin" : managerActivateAdmin,
         #"Select_interface Menu":
         #"Select_interface Display Numeric keypad":
         #"Select_interface Display Search Hab":
