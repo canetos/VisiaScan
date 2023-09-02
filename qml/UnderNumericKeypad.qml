@@ -38,7 +38,7 @@ Rectangle {
                     width: parent.width
                     height: parent.height
                     color: "#ffffff"
-                    text: "Waiting for passwords"
+                    text: "Waiting code PIN"
                     font.pixelSize: 16
                     verticalAlignment: Text.AlignVCenter
                     anchors.verticalCenterOffset: 0

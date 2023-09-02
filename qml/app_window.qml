@@ -93,7 +93,6 @@ ApplicationWindow {
                     anchors.fill: parent
                         onClicked: {
                             backend.handleButtonPress("Button clicked Previous")
-                            UnderDefilement.currentPage = (UnderDefilement.currentPage - 1 + UnderDefilement.swipeView.count) % UnderDefilement.swipeView.count
                         }
                     }
                 }
@@ -125,13 +124,12 @@ ApplicationWindow {
                     anchors.fill: parent
                     onClicked: {
                         backend.handleButtonPress("Button clicked next")
-                        currentPage = (currentPage + 1) % swipeView.count
                     }
                 }
             }
 
             Rectangle {
-                id: rectangle1
+                id: rectangleUnderDefilement
                 x: 150
                 y: 25
                 width: 500
@@ -147,7 +145,7 @@ ApplicationWindow {
                 width: 350
                 height: 100
                 radius: 45
-                color: Constants.colorbleu // Couleur standard du bouton
+                color: Constants.colorbleu
 
                 MouseArea {
                     anchors.fill: parent
@@ -161,12 +159,18 @@ ApplicationWindow {
                 }
 
                 Text {
+                    id : lbcustom
                     anchors.centerIn: parent
-                    text: "Reconnaissance_IA"
+                    text: "Please start the recognition"
                     font.pixelSize: 15
                     color: "white"
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
+                    onTextChanged: {
+                        if (text === "Process ending") {
+                            backend.handleButtonPress("end Reconnaissance_IA");
+                        }
+                    }
                 }
             }
             ProgressBar {
@@ -230,34 +234,50 @@ ApplicationWindow {
                     }
                     Keyframe {
                         value: "Stop moving, Pichure in 3"
-                        frame: 250
-                    }
-                    Keyframe {
-                        value: "Pichure in 2..."
                         frame: 500
                     }
                     Keyframe {
+                        value: "Pichure in 2..."
+                        frame: 600
+                    }
+                    Keyframe {
                         value: "Pichure in 1..."
-                        frame: 750
+                        frame: 700
                     }
                     Keyframe {
-                        value: "Process ..."
-                        frame: 1000
+                        value: "Pichure OK..."
+                        frame: 900
                     }
                     Keyframe {
-                        value: "Please wait "
+                        value: "Processing, wait ."
+                        frame: 1200
+                    }
+                    Keyframe {
+                        value: "Processing, wait .."
                         frame: 1500
                     }
                     Keyframe {
-                        value: "Process ..."
-                        frame: 2000
+                        value: "Processing, wait ..."
+                        frame: 1800
                     }
                     Keyframe {
-                        value: "Please wait "
-                        frame: 2500
+                        value: "Processing, wait ."
+                        frame: 2100
                     }
                     Keyframe {
-                        value: "Process ending "
+                        value: "Processing, wait .."
+                        frame: 2400
+                    }
+                    Keyframe {
+                        value: "Processing, wait ..."
+                        frame: 2700
+                    }
+                    Keyframe {
+                        value: "Process ending"
+                        frame: 2999
+                    } 
+                    Keyframe {
+                        value: "Please start the recognition"
                         frame: 3000
                     } 
                 }

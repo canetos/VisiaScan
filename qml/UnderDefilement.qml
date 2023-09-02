@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.15
+import "Constants.js" as Constants
 
 SwipeView {
     
@@ -42,23 +43,30 @@ SwipeView {
     Item{
         visible: currentIndex === 0
         Rectangle {
-            width: swipeView.width
-            height: swipeView.height
-            
-            MouseArea {
-                width: parent.width
-                height: parent.height
-                onClicked: {
-                    backend.handleButtonPress("Select_interface Display Numeric keypad")
-                    inactivityTimer.restart()
+            id: rectangleUnderDefilement
+            x: 0
+            y: 0
+            width: 500
+            height: 370
+            color: Constants.blanc 
+            Rectangle {
+                width: swipeView.width
+                height: swipeView.height
+                MouseArea {
+                    width: parent.width
+                    height: parent.height
+                    onClicked: {
+                        backend.handleButtonPress("Select_interface Display Numeric keypad")
+                        inactivityTimer.restart()
+                    }
+                    UnderNumericKeypad {}
                 }
-                UnderNumericKeypad {}
             }
         }
     }
 
     Item{
-        visible: currentIndex === 1
+        visible: currentIndex === 1 
         Rectangle {
             width: swipeView.width
             height: swipeView.height

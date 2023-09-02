@@ -13,7 +13,7 @@ Rectangle {
         x: 10
         y: 11
         width: 482
-        height: 337
+        height: 307
         color: "#2b678f"
         radius: 5
         Rectangle {
@@ -49,10 +49,10 @@ Rectangle {
                 RoundButton {
                     visible: lbSerach_Hab.text !== "Wait for your choice"
                     id: myRoundButtonAppel
-                    x: 45
+                    x: 16
                     y: 270
-                    width: 130
-                    height: 40
+                    width: 200
+                    height: 50
                     Text {
                         text: "Call the person"
                         color: "#ffffff"
