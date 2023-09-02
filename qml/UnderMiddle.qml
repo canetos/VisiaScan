@@ -1,13 +1,14 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.15
+import "Constants.js" as Constants
 
 Rectangle {
     width: 500
     height: 370
     color: "transparent"
-
+    
     signal onClicked()
-
+    
     Rectangle {
         width: parent.width
         height: parent.height
@@ -18,7 +19,53 @@ Rectangle {
             objectName: 'pyLbcustom'
             text: ""
         }
+
         Text {
+            id: titreprojet
+            x: 0
+            y: 130
+            width: 515
+            height: 105
+            color: Constants.colorblanc
+            text: qsTr(Constants.textenameprojet)
+            font.pixelSize: 80
+            horizontalAlignment: Text.AlignHCenter
+            anchors.topMargin: 5
+        }
+
+        Text {
+            id: soustitreprojet1
+            x: 0
+            y: 225
+            width: 515
+            height: 95
+            color: Constants.colorblanc
+            text: qsTr(Constants.texteprojet)
+            font.pixelSize: 50
+            horizontalAlignment: Text.AlignHCenter
+            anchors.verticalCenterOffset: 7
+            anchors.topMargin: 6
+        }
+
+        Text {
+            id: soustitreprojet2
+            x: 0
+            y: 290
+            width: 515
+            height: 60
+            color: Constants.colorblanc
+            text: qsTr(Constants.texteprojet_gene)
+            font.pixelSize: 30
+            horizontalAlignment: Text.AlignHCenter
+            anchors.leftMargin: 105
+            anchors.rightMargin: 115
+            anchors.horizontalCenter: soustitreprojet1.horizontalCenter
+            anchors.topMargin: 5
+            anchors.verticalCenterOffset: 50
+        }
+
+        Text {
+            visible: false
             id: lbmiddle
             objectName: 'pyLbmiddle'
         anchors.centerIn: parent

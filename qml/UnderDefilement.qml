@@ -11,7 +11,7 @@ SwipeView {
             currentPage = 1
         }
     }
-
+/*
       onCurrentIndexChanged: {
         // Appeler la fonction de réinitialisation
         resetWindow();
@@ -20,7 +20,7 @@ SwipeView {
     function resetWindow() {
         if (currentIndex === 0) {
         // Réinitialiser les valeurs des champs et masquer les éléments pour le premier Item
-        lbNum_Keypad.text = "Waiting for passwords";
+        lbNum_Keypad.text = "Waiting code PIN";
         } 
     else if (currentIndex === 1) {
         // Réinitialiser les valeurs des champs et masquer les éléments pour le deuxième Item
@@ -31,6 +31,7 @@ SwipeView {
         lbSerach_Hab.text = "Wait for your choice"
         }
     }
+*/
 
     property int currentPage: 1
     id: swipeView
@@ -61,6 +62,7 @@ SwipeView {
         Rectangle {
             width: swipeView.width
             height: swipeView.height
+            color: "transparent"
 
             MouseArea {
                 width: parent.width

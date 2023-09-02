@@ -136,7 +136,7 @@ ApplicationWindow {
                 y: 25
                 width: 500
                 height: 370
-                color: Constants.colorblanc   
+                color: Constants.transparent   
                 UnderDefilement {}
             }
 
