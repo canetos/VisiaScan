@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+import subprocess
 import logging
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtQuick import *
 from PyQt5.QtQml import *
 
-#from Open_Win_Admin import *
+from Open_Win_Admin import *
 
 MAIN_WINDOW_QML = "qml/app_window.qml"
 
@@ -97,8 +98,16 @@ def managerchangeswipeView(self, eventData):
         print("Enter else : managerchangeswipeView :" + eventData)
 
 def Open_Win_Admin(self):
-    pass #self.open_admin_page
+    try:
+        # Spécifiez le chemin absolu ou relatif du script Win_Admin.py
+        script_path = r'qml\src_ui\Win_Admin.py'
 
+        # Exécutez le script avec l'environnement Python actuel
+        print(f"Chemin complet : {script_path}")
+        subprocess.Popen(["python", script_path])
+    except Exception as e:
+        print(f"Une erreur s'est produite : {e}")
+    
 def managerActivateAdmin(self, eventData):
     if "Open_Admin" in eventData:
             print("Receipt of: " + eventData)

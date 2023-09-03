@@ -1,19 +1,26 @@
 import sys
 from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import (QMainWindow, QPushButton, QWidget, QVBoxLayout, QLineEdit,
+from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QPushButton, QWidget, QVBoxLayout, QLineEdit,
     QDesktopWidget, QHBoxLayout, QMessageBox, QLabel, QDialog, QFrame, QGridLayout, QCheckBox
-) #QApplication
+)
 from PyQt5.QtCore import Qt, QTimer
 
+# Importez la classe FaceRecognition de votre module
+from FaceRecognitionWithIndication import FaceRecognition
+
+
 class AdminPage(QWidget):
-    def __init__(self, name_display_widget):
+    def __init__(self, face_recognition, name_display_widget):
         """
         Initialize the AdminPage widget.
 
         Args:
+            face_recognition: An instance of the FaceRecognition class.
             name_display_widget: A QWidget for displaying names.
         """
         super().__init__()
+        self.face_recognition = face_recognition
         self.name_display_widget = name_display_widget
         self.initUI()
 
@@ -54,7 +61,7 @@ class AdminPage(QWidget):
         entered_id = self.id_input.text()
         entered_password = self.password_input.text()
 
-        if self.verify_id(entered_id, entered_password):
+        if self.face_recognition.verify_id(entered_id, entered_password):
             self.open_options_page()
         else:
             QMessageBox.critical(self, "Access Denied", "Incorrect ID or password.")
@@ -63,6 +70,7 @@ class AdminPage(QWidget):
         """
         Open the OptionsPage and close the AdminPage.
         """
+        self.options_page = OptionsPage(self.face_recognition, self.name_display_widget)
         self.options_page.setWindowTitle("Options Page")
         self.options_page.show()
         self.close()
@@ -97,14 +105,16 @@ class AdminPage(QWidget):
         virtual_keyboard.exec_()
 
 class OptionsPage(QWidget):
-    def __init__(self, name_display_widget):
+    def __init__(self, face_recognition, name_display_widget):
         """
         Initialize the OptionsPage widget.
 
         Args:
+            face_recognition: An instance of the FaceRecognition class.
             name_display_widget: A QWidget for displaying names.
         """
         super().__init__()
+        self.face_recognition = face_recognition
         self.name_display_widget = name_display_widget
         self.initUI()
 
@@ -132,7 +142,7 @@ class OptionsPage(QWidget):
         """
         Open the RegistrationPage and close the OptionsPage.
         """
-        self.registration_page = RegistrationPage(self.name_display_widget)
+        self.registration_page = RegistrationPage(self.face_recognition, self.name_display_widget)
         self.registration_page.setWindowTitle("Registration Page")
         self.registration_page.show()
         self.close()
@@ -141,7 +151,7 @@ class OptionsPage(QWidget):
         """
         Open the DeletionPage and close the OptionsPage.
         """
-        self.deletion_page = DeletionPage(self.name_display_widget)
+        self.deletion_page = DeletionPage(self.face_recognition, self.name_display_widget)
         self.deletion_page.setWindowTitle("Deletion Page")
         self.deletion_page.show()
         self.close()
@@ -155,14 +165,16 @@ class OptionsPage(QWidget):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 class RegistrationPage(QWidget):
-    def __init__(self, name_display_widget):
+    def __init__(self, face_recognition, name_display_widget):
         """
         Initialize the RegistrationPage widget.
 
         Args:
+            face_recognition: An instance of the FaceRecognition class.
             name_display_widget: A QWidget for displaying names.
         """
         super().__init__()
+        self.face_recognition = face_recognition
         self.name_display_widget = name_display_widget
         self.initUI()
 
@@ -210,8 +222,7 @@ class RegistrationPage(QWidget):
         last_name = self.last_name_input.text()
         apartment_number = self.apartment_number_input.text()
         is_house_admin = self.house_admin_checkbox.isChecked()  # Check if the checkbox is checked
-   #     self.face_recognition.register_faces(name, last_name, apartment_number, is_house_admin)
-        print((name, last_name, apartment_number, is_house_admin))
+        self.face_recognition.register_faces(name, last_name, apartment_number, is_house_admin)
         QMessageBox.information(self, "Registration Success", "Person successfully registered.")
         self.close()
         self.name_display_widget.update_name_list()
@@ -257,14 +268,16 @@ class RegistrationPage(QWidget):
 
 
 class DeletionPage(QWidget):
-    def __init__(self, name_display_widget):
+    def __init__(self, face_recognition, name_display_widget):
         """
         Initialize the DeletionPage widget.
 
         Args:
+            face_recognition: An instance of the FaceRecognition class.
             name_display_widget: A QWidget for displaying names.
         """
         super().__init__()
+        self.face_recognition = face_recognition
         self.name_display_widget = name_display_widget
         self.initUI()
 
@@ -312,7 +325,7 @@ class DeletionPage(QWidget):
         last_name = self.last_name_input.text()
         apartment_number = self.apartment_number_input.text()
         is_house_admin = self.house_admin_checkbox.isChecked()  # Check if the checkbox is checked
-        result = print(name, last_name, apartment_number, is_house_admin)
+        result = self.face_recognition.delete_person(name, last_name, apartment_number, is_house_admin)
         if result:
             QMessageBox.information(self, "Deletion Success", "Person successfully deleted.")
         else:
@@ -361,7 +374,7 @@ class DeletionPage(QWidget):
 
 
 class NameDisplayWidget(QWidget):
-    def __init__(self):
+    def __init__(self, face_recognition):
         """
         Initialize the NameDisplayWidget.
 
@@ -369,13 +382,14 @@ class NameDisplayWidget(QWidget):
             face_recognition: An instance of the FaceRecognition class.
         """
         super().__init__()
+        self.face_recognition = face_recognition
 
         self.layout = QHBoxLayout(self)
 
         self.prev_button = QPushButton("<")
         self.prev_button.clicked.connect(self.show_previous_name)
         self.layout.addWidget(self.prev_button)
-        self.registered_names = []
+
         self.name_field = QLineEdit()
         self.name_field.setReadOnly(True)
         self.name_field.setAlignment(Qt.AlignCenter)
@@ -386,6 +400,7 @@ class NameDisplayWidget(QWidget):
         self.layout.addWidget(self.next_button)
 
         self.current_name_index = 0
+        self.registered_names = list(self.face_recognition.house_administrator_dict.keys())
 
         self.update_name_display()
 
@@ -397,6 +412,7 @@ class NameDisplayWidget(QWidget):
         """
         Update the list of registered names.
         """
+        self.registered_names = list(self.face_recognition.house_administrator_dict.keys())
         self.current_name_index = 0
         self.update_name_display()
 
@@ -515,13 +531,15 @@ class VirtualKeyboard(QDialog):
 
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, face_recognition):
         """
         Initialize the main application window.
 
         Args:
+            face_recognition: An instance of the FaceRecognition class.
         """
         super().__init__()
+        self.face_recognition = face_recognition
         self.initUI()
 
     def initUI(self):
@@ -547,10 +565,8 @@ class MainWindow(QMainWindow):
 
         central_layout = QVBoxLayout(central_widget)
 
-        # Créez une instance de NameDisplayWidget et attribuez-la à self.name_display_widget
-        self.name_display_widget = NameDisplayWidget()
-        
-        # Ajoutez le widget d'affichage des noms juste au-dessus du bouton "Sonner"
+        # Add the name display widget just above the "Sonner" button
+        self.name_display_widget = NameDisplayWidget(self.face_recognition)
         central_layout.addWidget(self.name_display_widget, alignment=Qt.AlignCenter)
 
         button_layout = QHBoxLayout()
@@ -569,7 +585,7 @@ class MainWindow(QMainWindow):
         """
         Open the Admin Page when the "Admin" button is clicked.
         """
-        self.admin_page = AdminPage(self.name_display_widget)
+        self.admin_page = AdminPage(self.face_recognition, self.name_display_widget)
         self.admin_page.setWindowTitle("Admin Page")
         self.admin_page.show()
 
@@ -578,13 +594,13 @@ class MainWindow(QMainWindow):
         pass
 
 
+def main():
+    app = QApplication(sys.argv)
+    face_recognition = FaceRecognition()
+    window = MainWindow(face_recognition)
+    window.show()
+    sys.exit(app.exec_())
 
-#def main():
- #   app = QApplication(sys.argv)
-#    window = MainWindow()
- #   window.show()
- #   sys.exit(app.exec_())
 
-
-#if __name__ == "__main__":
-#    main()
+if __name__ == "__main__":
+    main()
