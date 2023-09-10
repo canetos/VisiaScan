@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+import time
 import subprocess
 import logging
 from PyQt5.QtCore import *
@@ -31,6 +32,8 @@ def Manager_numeric_Keypad(self, eventData):
         if self.stored_values == expected_sequence:
             logging.debug("Séquence correcte")
             self.transmit_textonQML("The door is open", "pyLbNum_Keypad")
+            self.transmit_textonQML("Waiting code PIN", "pyLbNum_Keypad")
+
         else:
             logging.debug("Séquence incorrecte")
             self.transmit_textonQML("", "pyLbNum_Keypad")
@@ -234,16 +237,5 @@ if __name__ == "__main__":
     # Vérifier si le chargement a réussi
     if not view.rootObjects():
         sys.exit(-1)
-
-    label_name = "pyLbl1"  # Remplacez ceci par le nom du QLabel QML
-    text_retour = backend.receive_textonPYTHON(label_name)
-    print("Texte reçu sur Python:", text_retour)
-
-    label_name = "pyLbl2"  # Remplacez ceci par le nom du QLabel QML
-    for i in range(1, 11):
-        text_to_send = f"Texte depuis Python {i}"
-        backend.transmit_textonQML(text_to_send, label_name)   
-    text_to_send = f"All send"
-    backend.transmit_textonQML(text_to_send, label_name)
 
     sys.exit(app.exec_())

@@ -153,11 +153,11 @@ Image {
                 color: "white"
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                onTextChanged: {
+                /*onTextChanged: {
                     if (text === "Process ending") {
                         backend.handleButtonPress("end Reconnaissance_IA");
                     }
-                }
+                }*/
             }
         }/*
         ProgressBar {
