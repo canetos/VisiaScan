@@ -1,6 +1,5 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.15
-import QtQuick.Timeline 1.0
 import "Constants.js" as Constants
 
 ApplicationWindow {
@@ -11,6 +10,16 @@ ApplicationWindow {
     color: Constants.colorgris
 
     flags: Qt.FramelessWindowHint | Qt.Window
+
+    Rectangle {
+        id: rectanglerotation
+        x: 0
+        y: 0
+        width: Constants.fullscreenWidth
+        height: Constants.fullscreenHeight
+        rotation : 180
+        color: Constants.transparent
+    }
 
     Image {
         id: imageFond_total
@@ -31,10 +40,11 @@ ApplicationWindow {
 
             Image {
                 id: image
-                x: 685
-                y: 15
-                width: 105
-                height: 45
+                x: Constants.fullscreenWidth * 0.71
+                y: Constants.fullscreenHeight * 0.8
+                width: Constants.fullscreenWidth * 0.45
+                height: Constants.fullscreenHeight * 0.1
+                rotation : Constants.rotation
                 source: Constants.picture_Ynov_Logo
                 fillMode: Image.PreserveAspectFit
             }
@@ -69,89 +79,85 @@ ApplicationWindow {
 */
             Image {
                 id: image1
-                x: 10
-                y: 155
-                width: 155
-                height: 240
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: parent.left
+                x: Constants.fullscreenWidth * - 0.01
+                y: Constants.fullscreenHeight * - 0.03
+                width: Constants.fullscreenWidth * 0.4
+                height: Constants.fullscreenHeight * 0.37
+                rotation : Constants.rotation
                 source: Constants.picture_Comptour_P_Logo_GvD
-                anchors.verticalCenterOffset: 0
-                anchors.leftMargin: 0
                 fillMode: Image.PreserveAspectFit
-
+                
                 Image {
                     id: image2
-                    x: 40
-                    y: 95
-                    width: 80
-                    height: 55
+                    x: Constants.fullscreenWidth * 0.12
+                    y: Constants.fullscreenHeight * 0.09
+                    width: Constants.fullscreenWidth * 0.15
+                    height: Constants.fullscreenHeight * 0.15
                     source: Constants.picture_Temp_Left_Pressed
                     fillMode: Image.PreserveAspectFit
-                }
-                MouseArea {
-                    anchors.fill: parent
-                        onClicked: {
-                            backend.handleButtonPress("Button clicked Previous")
+                    MouseArea {
+                        anchors.fill: parent
+                            onClicked: {
+                                backend.handleButtonPress("Button clicked Previous")
+                            }
                         }
                     }
                 }
             }
-            
+
             Image {
                 id: image3
-                x: 10
-                y: 155
-                width: 155
-                height: 240
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: parent.left
+                x: Constants.fullscreenWidth * - 0.019
+                y: Constants.fullscreenHeight * 0.65
+                width: Constants.fullscreenWidth * 0.4
+                height: Constants.fullscreenHeight * 0.37
+                rotation : Constants.rotation
                 source: Constants.picture_Comptour_P_Logo_DvG
-                anchors.verticalCenterOffset: 0
-                anchors.leftMargin: 655
                 fillMode: Image.PreserveAspectFit
 
                 Image {
                     id: image4
-                    x: 40
-                    y: 95
-                    width: 80
-                    height: 55
+                    x: Constants.fullscreenWidth * 0.12
+                    y: Constants.fullscreenHeight * 0.09
+                    width: Constants.fullscreenWidth * 0.15
+                    height: Constants.fullscreenHeight * 0.15
                     source: Constants.picture_Temp_Right_Pressed
                     fillMode: Image.PreserveAspectFit
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        backend.handleButtonPress("Button clicked next")
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            backend.handleButtonPress("Button clicked next")
+                        }
                     }
                 }
             }
 
             Rectangle {
                 id: rectangleUnderDefilement
-                x: 150
-                y: 25
-                width: 500
-                height: 370
-                color: Constants.transparent   
+                x: Constants.fullscreenWidth * 0.35
+                y: Constants.fullscreenHeight * 0.10
+                width: Constants.fullscreenWidth * 0.5
+                height: Constants.fullscreenHeight * 0.8
+                rotation : Constants.rotation
+                color: Constants.colorbleu  
                 UnderDefilement {}
             }
 
             Rectangle {
                 id: rectangle2
-                x: 225
-                y: 420
-                width: 350
-                height: 100
+                x: Constants.fullscreenWidth * 0.19
+                y: Constants.fullscreenHeight * 0.45
+                width: Constants.fullscreenWidth * 0.2
+                height: Constants.fullscreenHeight * 0.15
                 radius: 45
+                rotation : Constants.rotation
                 color: Constants.colorbleu
 
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        progressBar.visible = true 
-                        timelineAnimation.running = true 
+                        //progressBar.visible = true 
+                        //timelineAnimation.running = true 
                         backend.handleButtonPress("Reconnaissance_IA")
                     }
                     onPressed: parent.color =  Constants.colorbleufoncé 
@@ -172,7 +178,7 @@ ApplicationWindow {
                         }
                     }
                 }
-            }
+            }/*
             ProgressBar {
                 id: progressBar
                 x: 245
@@ -182,7 +188,7 @@ ApplicationWindow {
                 visible: false
                 value: 0
             }
-
+            
             Timeline {
                 id: timeline
                 animations: [
@@ -281,6 +287,6 @@ ApplicationWindow {
                         frame: 3000
                     } 
                 }
-            }
+            }*/
         }
     }

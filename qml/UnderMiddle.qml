@@ -3,8 +3,8 @@ import QtQuick.Controls 2.15
 import "Constants.js" as Constants
 
 Rectangle {
-    width: 500
-    height: 370
+    width: Constants.fullscreenWidth * 0.5
+    height: Constants.fullscreenHeight * 0.8
     color: "transparent"
     
     signal onClicked()
@@ -22,10 +22,10 @@ Rectangle {
 
         Text {
             id: titreprojet
-            x: 0
-            y: 130
-            width: 515
-            height: 105
+            x: parent.width * 0.2
+            y: parent.height * 0.10
+            width: parent.width *0.7
+            height: parent.height * 0.2
             color: Constants.colorblanc
             text: qsTr(Constants.textenameprojet)
             font.pixelSize: 80
@@ -35,10 +35,10 @@ Rectangle {
 
         Text {
             id: soustitreprojet1
-            x: 0
-            y: 225
-            width: 515
-            height: 95
+            x: parent.width * 0.2
+            y: parent.height * 0.25
+            width: parent.width *0.7
+            height: parent.height * 0.2
             color: Constants.colorblanc
             text: qsTr(Constants.texteprojet)
             font.pixelSize: 50
@@ -49,10 +49,10 @@ Rectangle {
 
         Text {
             id: soustitreprojet2
-            x: 0
-            y: 290
-            width: 515
-            height: 60
+            x: parent.width * 0.2
+            y: parent.height * 0.35
+            width: parent.width *0.7
+            height: parent.height * 0.2
             color: Constants.colorblanc
             text: qsTr(Constants.texteprojet_gene)
             font.pixelSize: 30

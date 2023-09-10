@@ -3,51 +3,22 @@ import QtQuick.Controls 2.15
 import "Constants.js" as Constants
 
 SwipeView {
-    
-    Timer {
-        id: inactivityTimer
-        interval: 10000
-        repeat: false
-        onTriggered: {
-            currentPage = 1
-        }
-    }
-/*
-      onCurrentIndexChanged: {
-        // Appeler la fonction de réinitialisation
-        resetWindow();
-    }
-
-    function resetWindow() {
-        if (currentIndex === 0) {
-        // Réinitialiser les valeurs des champs et masquer les éléments pour le premier Item
-        lbNum_Keypad.text = "Waiting code PIN";
-        } 
-    else if (currentIndex === 1) {
-        // Réinitialiser les valeurs des champs et masquer les éléments pour le deuxième Item
-        }
-
-    else if (currentIndex === 2) {
-        // Réinitialiser les valeurs des champs et masquer les éléments pour le troisième Item
-        lbSerach_Hab.text = "Wait for your choice"
-        }
-    }
-*/
-
     property int currentPage: 1
-    id: swipeView
-    width: Math.min(500, 499)
-    height: 370 - 40
-    currentIndex: currentPage    
+    property int limitewithshow: parent.width
+    property int limiteheightshow: parent.height
 
+    id: swipeView
+    width: Math.min(limitewithshow,limitewithshow-1)
+    height: Math.min(limiteheightshow,limiteheightshow-1)
+    currentIndex: currentPage   
     Item{
         visible: currentIndex === 0
         Rectangle {
             id: rectangleUnderDefilement
             x: 0
             y: 0
-            width: 500
-            height: 370
+            width: parent.width
+            height: parent.height
             color: Constants.colorblanc 
             Rectangle {
                 width: swipeView.width
@@ -57,7 +28,6 @@ SwipeView {
                     height: parent.height
                     onClicked: {
                         backend.handleButtonPress("Select_interface Display Numeric keypad")
-                        inactivityTimer.restart()
                     }
                     UnderNumericKeypad {}
                 }
@@ -77,7 +47,6 @@ SwipeView {
                 height: parent.height
                 onClicked: {
                     backend.handleButtonPress("Select_interface Menu")
-                    inactivityTimer.restart()
                 }
                 UnderMiddle {}
             }
@@ -95,7 +64,6 @@ SwipeView {
                 height: parent.height
                 onClicked: {
                     backend.handleButtonPress("Select_interface Display Search Hab")
-                    inactivityTimer.restart()
                 }
                 UnderSearchUInhabitant {}
             }
@@ -114,7 +82,6 @@ SwipeView {
                     height: parent.height
                     onClicked: {
                         backend.handleButtonPress("Select_interface Display Admin")
-                        inactivityTimer.restart()
                     }
                     UnderAdmin {}
                 }
@@ -155,7 +122,7 @@ SwipeView {
                     height: parent.height
                     onClicked: {
                         backend.handleButtonPress("Select_interface Display Admin")
-                        inactivityTimer.restart()
+                         
                     }
                     UnderSearchUInhabitant {}
                 }
@@ -224,7 +191,7 @@ Rectangle {
             onClicked: {
                 backend.handleButtonPress("Bouton cliqué Précédent")
                 currentPage = (currentPage - 1 + swipeView.count) % swipeView.count
-                inactivityTimer.restart()
+                 
             }
             Rectangle {
                 width: parent.width
@@ -243,7 +210,7 @@ Rectangle {
             onClicked: {
                 backend.handleButtonPress("Bouton cliqué Suivant")
                 currentPage = (currentPage + 1) % swipeView.count
-                inactivityTimer.restart()
+                 
             }
             Rectangle {
                 width: parent.width

@@ -1,12 +1,11 @@
 // Constants_Accueil.js
 
-var fullscreenWidth     = 810; //1920 
-var fullscreenHeight    = 540; //1080
-
-var demiscreenWidth     = 500;
-var demiscreenHeight    = 370; 
+var fullscreenWidth     = 1920 //1920 810
+var fullscreenHeight    = 1080 //1080 510
 
 var duration_total      = 7000;
+
+var rotation = 90
 
 var textevide           = "";
 var textenameprojet     = "VisIA-Scan\n";
@@ -30,6 +29,12 @@ var titleAbout      = "About";
 var transparent     = "transparent";
 var colorbleu       = "#007acc";
 var colorbleufoncé  = "#00558c";
+
+var colorrouge       = "#ac0000";
+var colorrougefoncé  = "#bf0000";
+var colorvert       = "#00ac7a";
+var colorvertfoncé  = "#009c6a";
+
 var colorgris       = "#c2c2c2";
 var colorblanc      = "#ffffff";
 

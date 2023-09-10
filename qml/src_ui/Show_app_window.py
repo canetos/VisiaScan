@@ -27,10 +27,10 @@ def Manager_numeric_Keypad(self, eventData):
             self.transmit_textonQML(stars_text, "pyLbNum_Keypad")
 
     elif eventData == "V":
-        expected_sequence = ["1", "2", "3", "4", "*", "#"]
+        expected_sequence = ["1", "2", "3", "4", "*"]
         if self.stored_values == expected_sequence:
             logging.debug("Séquence correcte")
-            self.transmit_textonQML("The dor is open", "pyLbNum_Keypad")
+            self.transmit_textonQML("The door is open", "pyLbNum_Keypad")
         else:
             logging.debug("Séquence incorrecte")
             self.transmit_textonQML("", "pyLbNum_Keypad")
