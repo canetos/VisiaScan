@@ -74,7 +74,6 @@ Rectangle {
             }         
             onClicked: {
                 backend.handleButtonPress("C")
-                inactivityTimer.restart()
             }
         }
             
@@ -104,7 +103,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("V")
-                inactivityTimer.restart()
             }
         }
     }
@@ -144,7 +142,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("1")
-                inactivityTimer.restart()
             }
         }
 
@@ -174,7 +171,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("2")
-                inactivityTimer.restart()
             }
         }
 
@@ -204,7 +200,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("3")
-                inactivityTimer.restart()
             }
         }
     }
@@ -243,7 +238,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("4")
-                inactivityTimer.restart()
             }
         }
 
@@ -273,7 +267,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("5")
-                inactivityTimer.restart()
             }
         }
 
@@ -303,7 +296,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("6")
-                inactivityTimer.restart()
             }
         }
     }
@@ -343,7 +335,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("7")
-                inactivityTimer.restart()
             }
         }
 
@@ -373,7 +364,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("8")
-                inactivityTimer.restart()
             }
         }
 
@@ -403,7 +393,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("9")
-                inactivityTimer.restart()
             }
         }   
     }
@@ -443,7 +432,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("#")
-                inactivityTimer.restart()
             }
         }
 
@@ -473,7 +461,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("0")
-                inactivityTimer.restart()
             }
         }
 
@@ -503,7 +490,6 @@ Rectangle {
             }
             onClicked: {
                 backend.handleButtonPress("*")
-                inactivityTimer.restart()
             }
         }  
     }

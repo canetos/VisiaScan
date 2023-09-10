@@ -94,8 +94,7 @@ Rectangle {
             } 
             onClicked: {
                 backend.handleButtonPress("<<<")
-                inactivityTimer.restart()
-                }
+            }
         }
 
         RoundButton {
@@ -118,7 +117,7 @@ Rectangle {
             } 
             onClicked:{
                 backend.handleButtonPress(">>>")
-                inactivityTimer.restart()                                                                }
+            }
         }
     }
 }   
