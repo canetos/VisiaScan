@@ -10,13 +10,21 @@ from PyQt5.QtGui import *
 from PyQt5.QtQuick import *
 from PyQt5.QtQml import *
 
+import json
+sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
+from facereco import FaceRecognitionWithIndication
 from Open_Win_Admin import *
+
+face_recognition = FaceRecognitionWithIndication.FaceRecognition()
 
 MAIN_WINDOW_QML = "qml/app_window.qml"
 
 def Call_reco_Facial(self, eventData):
-    logging.debug("Lancement du programme de reconnaissance faciale")
-    # ICI l'appel de la fonctionnalité
+     logging.debug("Lancement du programme de reconnaissance faciale")
+    if face_recognition.recognize_faces():
+        print("personne connue")
+    else:
+        print("personne non connue")
 
 def Manager_numeric_Keypad(self, eventData):
     if eventData in ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "#"):
@@ -49,35 +57,62 @@ def Manager_numeric_Keypad(self, eventData):
     else : 
         print("Enter else : Manager_numeric_Keypad :" + eventData)
 
+def update_name_display(self):
+    registered_names = list(face_recognition.house_administrator_dict.keys())
+
+    if not registered_names:
+        name: str = "No names registered"
+        return name
+    current_name = registered_names[face_recognition.current_name_index]
+    # Remove any digits at the end of the name (if any)
+    current_name = ''.join(filter(lambda x: not x.isdigit(), current_name))
+    # Replace underscores with spaces
+    msg_name = current_name.replace("_", " ")
+    msg_appt = msg_name.rsplit(' ', 1)[-1]
+    msg_name_hab = msg_name.rsplit(' ', 1)[0]
+
+    return msg_name_hab, msg_appt
+
+
 def manger_search_habitant(self, eventData):
     if "<<<" in eventData:
+        if face_recognition.current_name_index == 0:
+            pass
+        else:
+            face_recognition.current_name_index += 1
         print("passez " + eventData)
         label_name = "pyLbSerach_Hab"
         # Va chercher le nom précédent = ""
-        msg_name_hab = "Jean Luc"
-        msg_number_app = "413"
+        msg_name = update_name_display(self)
+        msg_name_hab = msg_name[0]
+        msg_number_app = msg_name[1]
         text_to_send = f" Contacte : {msg_name_hab} \nNum appartement :\n{msg_number_app} "
         self.transmit_textonQML(text_to_send, label_name)
 
     elif ">>>" in eventData:
         print("passez " + eventData)
+        face_recognition.current_name_index += 1
         label_name = "pyLbSerach_Hab"
         # Va chercher le nom suivant = msg
-        msg_name_hab = "Jeanne d'Arc"
-        msg_number_app = "413"
+        msg_name = update_name_display(self)
+        msg_name_hab = msg_name[0]
+        msg_number_app = msg_name[1]
         text_to_send = f" Contacte : \n   {msg_name_hab} \nNum appartement :\n   {msg_number_app} "
         self.transmit_textonQML(text_to_send, label_name)
+        if face_recognition.current_name_index == len(list(face_recognition.house_administrator_dict.keys())):
+            face_recognition.current_name_index = 0
 
     elif "Call the person" in eventData:
         print("passez " + eventData)
         label_name = "pyLbSerach_Hab"
         # Va chercher le nom suivant = msg
-        msg_name_hab = "Jeanne d'Arc"
-        msg_number_app = "413"
+        msg_name = update_name_display(self)
+        msg_name_hab = msg_name[0]
+        msg_number_app = msg_name[1]
         text_to_send = f" Contacte : \n   {msg_name_hab} \nNum appartement :\n   {msg_number_app} "
         self.transmit_textonQML(text_to_send, label_name)
 
-    else : 
+    else:
         print("Enter else : manger_search_habitant :" + eventData)
 
 def managerchangeswipeView(self, eventData):
@@ -225,6 +260,9 @@ class Backend(QObject):
 
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
+    
+    face_recognition = FaceRecognitionWithIndication.FaceRecognition()
+
 
     logging.basicConfig(level=logging.DEBUG)
 
